@@ -1,6 +1,8 @@
 package com.game;
 
 public class Square {
+
+    /****ATTRIBUTES***/
     private String content;
 
     /****GETTERS****/
@@ -8,13 +10,11 @@ public class Square {
         return this.content;
     }
 
-
     /****SETTERS****/
 
     public void setContent(String content) {
         this.content = content;
     }
-
 
     /****TO STRING****/
 

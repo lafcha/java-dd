@@ -2,24 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="85240f88-176e-490a-8e1c-ec60ac74a656" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/characters/Character.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/characters/Hero.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/characters/Warrior.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/characters/Wizard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/equipment/Equipment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/equipment/Fireball.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/equipment/Hammer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/equipment/Lightning.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/equipment/Spell.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/equipment/Sword.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/equipment/Weapon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/game/Board.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/game/Dice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/game/Game.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/game/Square.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/dd/Warrior.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -8,11 +8,14 @@ import java.util.Scanner;
 
 
 public class Game {
+
+    /****ATTRIBUTES***/
     private Hero hero;
 
-
+    /****METHODS***/
     /**
      * Ask the type of the character to the player
+     * @return The letter chosen by the player
      */
     public char askCharacterType() {
         Scanner scanner = new Scanner(System.in);
@@ -30,6 +33,7 @@ public class Game {
 
     /**
      * Asks the name of the character to the player
+     * @return the name of the character typed by the player
      */
     public String askCharacterName() {
         System.out.println("Entrez le nom de votre personnage : ");
@@ -57,7 +61,7 @@ public class Game {
     }
 
     /**
-     *
+     * The menu to choose between display or modify the hero's infos
      * @return the letter corresponding to the player's choice
      */
     public void askDisplayOrModifyHeroInfos() {
@@ -77,7 +81,7 @@ public class Game {
     }
 
     /**
-     *
+     * Displays or modify of the player's hero
      * @param answer the letter chosen by the player
      */
     public void displayDisplayOrModifyInfos(char answer) {
@@ -92,7 +96,7 @@ public class Game {
     }
 
     /**
-     *
+     * Modifies the name of the player's hero
      */
     public void modifyCharacter() {
 
@@ -104,9 +108,10 @@ public class Game {
 
 
     /**
-     * Launches the game : creation of the character
+     * Ask hero's settings & creates it
+     * @return an instance of the hero created
      */
-    public Hero newHero() {
+    public Hero setNewHero() {
 
         char characterType = askCharacterType();
         String characterName = askCharacterName();
@@ -115,7 +120,7 @@ public class Game {
     }
 
     /**
-     *
+     * Displays the menu and directs the player according to his/her choice
      */
     public void displayMenu() {
         Scanner scanner = new Scanner(System.in);
@@ -141,7 +146,7 @@ public class Game {
         }
     }
 
-
+    /****MAIN METHOD***/
 
     /**
      * @param args
@@ -149,7 +154,7 @@ public class Game {
     public static void main(String[] args) {
         System.out.println("Bienvenue sur le jeu !");
         Game game = new Game();
-        Hero hero = game.newHero();
+        Hero hero = game.setNewHero();
         System.out.println("Bravo ! vous avez crée votre personnage. Que voulez-vous faire maintenant ?");
         Board board = new Board();
         while(true){

@@ -11,15 +11,6 @@ public class Hero extends Character {
     private int maxAttackForce;
     private Equipment equipment;
 
-    /****CONSTRUCTOR***/
-
-    public Hero(String name, int lifePoints, int force, int maxLifePoints, int maxAttackForce){
-        super(name, lifePoints, force);
-        this.maxAttackForce = maxAttackForce;
-        this.maxLifePoints = maxLifePoints;
-
-    }
-
     /****GETTERS****/
     public String getImage() {
         return image;
@@ -31,6 +22,15 @@ public class Hero extends Character {
         this.image = imagePath;
     }
     public void setEquipment(Equipment equipment){this.equipment = equipment;}
+
+    /****CONSTRUCTOR***/
+
+    public Hero(String name, int lifePoints, int force, int maxLifePoints, int maxAttackForce){
+        super(name, lifePoints, force);
+        this.maxAttackForce = maxAttackForce;
+        this.maxLifePoints = maxLifePoints;
+
+    }
 
     /****METHODS****/
 
