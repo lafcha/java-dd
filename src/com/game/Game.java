@@ -1,8 +1,8 @@
 package com.game;
 
-import com.characters.Hero;
-import com.characters.Warrior;
-import com.characters.Wizard;
+import com.characters.heroes.Hero;
+import com.characters.heroes.Warrior;
+import com.characters.heroes.Wizard;
 import com.exceptions.OutOfBoardCharacterException;
 
 import java.util.Scanner;

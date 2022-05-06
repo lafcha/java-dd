@@ -9,7 +9,12 @@ public abstract class Character {
 
 
     /****CONSTRUCTOR****/
-
+    /**
+     *
+     * @param name
+     * @param lifePoints
+     * @param force
+     */
     public Character(String name, int lifePoints, int force){
         this.lifePoints = lifePoints;
         this.name = name;
@@ -34,10 +39,17 @@ public abstract class Character {
 
 
     /****SETTERS****/
+    /**
+     * @param name
+     */
     public void setName(String name){
         this.name = name;
     }
 
+    /**
+     *
+     * @param lifePoints
+     */
     public void  setLifePoints(int lifePoints){
         this.lifePoints = lifePoints;
     }
