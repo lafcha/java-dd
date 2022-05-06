@@ -1,6 +1,6 @@
 package com.equipment;
 
-public class Equipment {
+public abstract class Equipment {
 
     /***ATTRIBUTES****/
     private int power;

@@ -1,12 +1,12 @@
 package com.characters;
 
-public class Character {
+public abstract class Character {
 
     /****ATTRIBUTES****/
     private String name;
     private int lifePoints;
     private int force;
-    private int position;
+
 
     /****CONSTRUCTOR****/
 
@@ -31,17 +31,11 @@ public class Character {
         return name;
     }
 
-    public int getPosition(){
-        return position;
-    }
+
 
     /****SETTERS****/
     public void setName(String name){
         this.name = name;
-    }
-
-    public void setPosition (int position){
-        this.position = position;
     }
 
     public void  setLifePoints(int lifePoints){
@@ -52,7 +46,7 @@ public class Character {
 
     /***
      * Calculates the new lifePoints after a blow from a monster has been taken
-     * @param blowForce
+     * @param blowForce The force of the blow
      */
     public void takeBlow(int blowForce){
 
@@ -62,7 +56,5 @@ public class Character {
 
     }
 
-    public static void main(String[] args) {
 
-    }
 }

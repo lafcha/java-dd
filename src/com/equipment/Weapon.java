@@ -1,6 +1,6 @@
 package com.equipment;
 
-public class Weapon extends Equipment{
+public abstract class Weapon extends Equipment{
 
 
 
