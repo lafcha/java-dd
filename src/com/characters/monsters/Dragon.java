@@ -1,9 +1,16 @@
 package com.characters.monsters;
 
-public class Dragon extends Monster{
+import com.characters.heroes.Hero;
+import com.equipment.Equipment;
+
+import javax.swing.*;
+
+public class Dragon extends Monster {
+
 
     /****CONSTRUCTOR****/
-    public Dragon(String name, int lifePoints, int force){
+    public Dragon() {
         super("Dragon", 15, 4);
     }
+
 }

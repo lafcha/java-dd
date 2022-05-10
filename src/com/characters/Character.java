@@ -37,7 +37,6 @@ public abstract class Character {
     }
 
 
-
     /****SETTERS****/
     /**
      * @param name
@@ -51,20 +50,27 @@ public abstract class Character {
      * @param lifePoints
      */
     public void  setLifePoints(int lifePoints){
-        this.lifePoints = lifePoints;
+
+        if(lifePoints < 0){
+            this.lifePoints = 0;
+        } else {
+            this.lifePoints = lifePoints;
+        }
+    }
+
+    public void setForce(int force) {
+        this.force = force;
     }
 
     /****METHODS****/
 
-    /***
-     * Calculates the new lifePoints after a blow from a monster has been taken
-     * @param blowForce The force of the blow
+    /**
+     * Diminishes the lifePoints of a character (hero or monster) according to the opponent's force
+     * @param attackingCharacter the character who is attacking
      */
-    public void takeBlow(int blowForce){
+    public void takeBlow(Character attackingCharacter){
 
-        //TODO: add in case lifepoints < 0 to stop the game
-
-        setLifePoints(getLifePoints()-blowForce);
+        setLifePoints(getLifePoints()-attackingCharacter.force);
 
     }
 

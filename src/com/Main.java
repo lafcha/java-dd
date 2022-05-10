@@ -1,6 +1,5 @@
 package com;
 
-import com.exceptions.OutOfBoardCharacterException;
 import com.game.Board;
 import com.game.Game;
 

@@ -135,20 +135,51 @@ public class Game {
      * Plays a game
      */
     public void playTheGame() {
+
+        System.out.println(hero);
+        System.out.println("La partie commence. Bonne chance !");
         boolean endOfGame = false;
         Dice dice = new Dice();
         while (!endOfGame) {
-            dice.rollTheDice();
-            int diceValue = dice.getValue();
-            int newPosition = hero.getPosition() + diceValue;
-            hero.setPosition(newPosition);
-            try {
-                board.getSquareContent(newPosition);
-            } catch (OutOfBoardCharacterException e) {
-                endOfGame = true;
-                this.displayMenu = false;
-                System.out.println("Fin de la partie !");
+            System.out.println("Tapez sur la barre d'espace, puis Entrée pour lancer le dé.");
+            System.out.println("Tapez sur Q pour quitter.");
+            char letterChar = '!';
+            while (letterChar != ' ') {
+                if (letterChar != '!') {
+                    System.out.println("La lettre que vous avez tapé n'est pas correcte");
+                }
+                String letter = scanner.nextLine();
+                letterChar = letter.charAt(0);
+                if (letterChar == ' '){
+                    dice.rollTheDice();
+                    int diceValue = dice.getValue();
+                    System.out.println("Le dé fait " + diceValue +".");
+                    int newPosition = hero.getPosition() + diceValue;
+                    hero.setPosition(newPosition);
+                    try {
+                        ISurprise surprise = board.goToSquare(newPosition);
+                        System.out.println("Vous avancez à la case " + newPosition +".");
+                        System.out.println(surprise.openSurprise(hero));
+                        System.out.println("Vous avez " + hero.getLifePoints() +" points de vie et " + hero.getForce() + " points d'attaque.");
+                        if (hero.getLifePoints() <= 0){
+                            endOfGame = true;
+                            this.displayMenu = false;
+                            System.out.println("GAME OVER ! Vous avez perdu la partie!");
+                        }
+                    } catch (OutOfBoardCharacterException e) {
+                        endOfGame = true;
+                        this.displayMenu = false;
+                        System.out.println(" Vous avez GAGNÉ ! BRAVO !");
+                    }
+
+                }
+                if(letterChar == 'Q'){
+                    System.out.println("Au revoir et à bientôt !");
+                    System.exit(0);
+                }
             }
+
+
         }
     }
 
@@ -168,6 +199,7 @@ public class Game {
         }
         if (letterChar == 'R') {
             stillPlaying = true;
+            displayMenu = true;
         }
         if (letterChar == 'Q') {
             System.out.println("Au revoir et à bientôt !");

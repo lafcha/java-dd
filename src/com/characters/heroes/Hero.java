@@ -3,6 +3,8 @@ package com.characters.heroes;
 
 import com.characters.Character;
 import com.equipment.Equipment;
+import com.equipment.spells.Spell;
+import com.equipment.weapons.Weapon;
 
 public abstract class Hero extends Character {
 
@@ -10,15 +12,22 @@ public abstract class Hero extends Character {
     private String image;
     private int maxLifePoints;
     private int maxAttackForce;
-    private Equipment equipment;
+
     private int position;
 
     /****GETTERS****/
     public String getImage() {
         return image;
     }
-    public Equipment getEquipment(){return equipment;}
-    public int getPosition(){
+
+    public int getMaxAttackForce() {
+        return maxAttackForce;
+    }
+
+    public int getMaxLifePoints() {
+        return maxLifePoints;
+    }
+    public int getPosition() {
         return position;
     }
 
@@ -26,8 +35,15 @@ public abstract class Hero extends Character {
     public void setImage(String imagePath) {
         this.image = imagePath;
     }
-    public void setEquipment(Equipment equipment){this.equipment = equipment;}
-    public void setPosition (int position){
+
+    public void setMaxLifePoints(int maxLifePoints) {
+        this.maxLifePoints = maxLifePoints;
+    }
+
+    public void setMaxAttackForce(int maxAttackForce) {
+        this.maxAttackForce = maxAttackForce;
+    }
+    public void setPosition(int position) {
         this.position = position;
     }
 
@@ -39,21 +55,19 @@ public abstract class Hero extends Character {
      * @param maxLifePoints
      * @param maxAttackForce
      */
-    public Hero(String name, int lifePoints, int force, int maxLifePoints, int maxAttackForce){
+    public Hero(String name, int lifePoints, int force, int maxLifePoints, int maxAttackForce) {
         super(name, lifePoints, force);
         this.maxAttackForce = maxAttackForce;
         this.maxLifePoints = maxLifePoints;
-
     }
 
     /****METHODS****/
     /**
-     *
      * @return a String with the hero's characteristics
      */
     @Override
     public String toString() {
-        return "Nom : " + getName() +" | Type de héros : "+  this.getClass().getSimpleName() + " | Points de vie : " + getLifePoints() + " | Points d'attaque : " +getForce();
+        return "Vous vous appelez " + getName() + ". Vous êtes un " + this.getClass().getSimpleName() + ". Vous avez " + getLifePoints() + " points de vie et " + getForce() +" points d'attaque.";
     }
 
 

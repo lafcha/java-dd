@@ -4,7 +4,7 @@ public class Hammer extends Weapon {
 
     /****CONSTRUCTOR****/
 
-    public Hammer(int power){
-        super(3);
+    public Hammer(){
+        super(3, "Massue");
     }
 }

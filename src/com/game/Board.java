@@ -2,12 +2,12 @@ package com.game;
 
 import com.exceptions.OutOfBoardCharacterException;
 
-import java.util.Random;
 
 public class Board {
     /****ATTRIBUTES****/
-    private String[] squareContentTypes = {"empty", "monster", "surprise"};
-    private Square[] board = new Square[64];
+    private int boardLength = 64;
+     private Square[] board = new Square[boardLength];
+
 
 
     /****GETTERS****/
@@ -21,11 +21,8 @@ public class Board {
      */
     public Board() {
         int counter = 0;
-        Random random = new Random();
-        while (counter < 64) {
+        while (counter < boardLength) {
             Square square = new Square();
-            int randomNumber = random.nextInt(3 - 0) + 0;
-            square.setContent(squareContentTypes[randomNumber]);
             board[counter] = square;
             counter++;
         }
@@ -42,15 +39,20 @@ public class Board {
     }
 
     /**
-     * Displays the content of the square according to the number in parameter
+     * Gets the surprise of the square
      * @param squareNb the number of the square
      * @throws OutOfBoardCharacterException when the number in parameter is higher to the number of the board length
+     * @return the surprise corresponding to the square
      */
-    public void getSquareContent(int squareNb) throws OutOfBoardCharacterException {
-        if (squareNb > board.length) {
+    public ISurprise goToSquare(int squareNb) throws OutOfBoardCharacterException {
+        if (squareNb >= board.length) {
             throw new OutOfBoardCharacterException();
         } else {
-            System.out.println("Contenu de la case n°" + squareNb + ": " + board[squareNb]);
+            return board[squareNb].getSurprise();
         }
     }
+
+
+
+
 }
