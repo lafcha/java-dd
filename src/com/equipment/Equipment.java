@@ -36,19 +36,11 @@ public abstract class Equipment implements ISurprise {
     }
 
     /****METHODS****/
-
+    /**
+     * The method of the Isurprise interface.
+     * @param hero the hero playing
+     * @return a string
+     */
     public abstract String openSurprise(Hero hero);
 
-   //rendre la méthode abstraite => vide
-
-        // faire le code dans chaque sous classe
-        //Pour spells & weapons (faire dans les sous sous classes)
-        // attackforce = attackforce + arme force
-        // si attackforce > maxAttack force, alors attackforce = maxAttackforce
-
-        //pour small & largepotion
-        // lifepoints = lifepoints + potion force
-        // si lifepoints > maxlifepoints, alors lifepoints = maxlifepoints
-
-
-}
+  }

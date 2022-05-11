@@ -6,11 +6,20 @@ import com.equipment.Equipment;
 public abstract class Potion extends Equipment {
 
     /****CONSTRUCTOR****/
-
+    /**
+     *
+     * @param power number of lifepoints the hero can gain with the potion
+     * @param name name of the potion
+     */
     public Potion(int power, String name){
         super(power, name );
     }
 
+    /**
+     * Determines the lifepoints the hero has after getting a potion.
+     * @param hero the hero playing
+     * @return a string indicatation how many lifepoints the hero has after getting a potion.
+     */
     public String openSurprise(Hero hero) {
 
         if((hero.getLifePoints() + this.getPower()) > hero.getMaxLifePoints()){

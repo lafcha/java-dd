@@ -58,21 +58,14 @@ public abstract class Character {
         }
     }
 
+    /**
+     *
+     * @param force
+     */
     public void setForce(int force) {
         this.force = force;
     }
 
-    /****METHODS****/
-
-    /**
-     * Diminishes the lifePoints of a character (hero or monster) according to the opponent's force
-     * @param attackingCharacter the character who is attacking
-     */
-    public void takeBlow(Character attackingCharacter){
-
-        setLifePoints(getLifePoints()-attackingCharacter.force);
-
-    }
 
 
 }

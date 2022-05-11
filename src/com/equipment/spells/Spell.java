@@ -7,10 +7,20 @@ import com.equipment.Equipment;
 
 public abstract class Spell extends Equipment {
 
+    /**
+     *
+     * @param power the number of attackpoints the hero can get
+     * @param name the name of the spell
+     */
     public Spell(int power, String name) {
         super(power, name);
     }
 
+    /**
+     * Determines if the hero can have a spell & and how many attack points he gains.
+     * @param hero the hero playing
+     * @return a string indicating if the hero can have a spell & and how many attack points he gains.
+     */
     public String openSurprise(Hero hero) {
         if (hero instanceof Wizard) {
             if (hero.getForce() + this.getPower() > hero.getMaxAttackForce()) {

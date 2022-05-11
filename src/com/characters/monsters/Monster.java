@@ -13,10 +13,10 @@ public abstract class Monster extends Character implements ISurprise {
     }
 
     /**
-     * Interface OpenSuprise : the hero fights against a monster
+     * Interface OpenSuprise : the hero fights against a monster. He attacks first and loose lifepoints when he takes a blow.
      *
      * @param hero
-     * @return a string wether the hero
+     * @return a string giving the result of the fight : won or lost.
      */
     public String openSurprise(Hero hero) {
 

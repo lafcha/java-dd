@@ -49,11 +49,11 @@ public abstract class Hero extends Character {
 
     /****CONSTRUCTOR***/
     /**
-     * @param name
-     * @param lifePoints
-     * @param force
-     * @param maxLifePoints
-     * @param maxAttackForce
+     * @param name name of the hero.
+     * @param lifePoints lifepoints of the hero. Depends on the hero type & the fights.
+     * @param force attack points of the hero.
+     * @param maxLifePoints maximum of lifepoints a hero can have.
+     * @param maxAttackForce maximum of attack points a hero can have.
      */
     public Hero(String name, int lifePoints, int force, int maxLifePoints, int maxAttackForce) {
         super(name, lifePoints, force);
