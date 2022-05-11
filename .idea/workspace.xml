@@ -1,19 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="85240f88-176e-490a-8e1c-ec60ac74a656" name="Changes" comment="functional game">
-      <change afterPath="$PROJECT_DIR$/src/com/Menu.java" afterDir="false" />
+    <list default="true" id="85240f88-176e-490a-8e1c-ec60ac74a656" name="Changes" comment="code display">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/characters/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/characters/Character.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/characters/heroes/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/characters/heroes/Hero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/characters/monsters/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/characters/monsters/Monster.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/equipment/EmptySquare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/equipment/EmptySquare.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/equipment/Equipment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/equipment/Equipment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/equipment/potions/Potion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/equipment/potions/Potion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/equipment/spells/Spell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/equipment/spells/Spell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/equipment/weapons/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/equipment/weapons/Weapon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/game/Game.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +98,7 @@
       <option name="presentableId" value="Default" />
       <updated>1651239169643</updated>
       <workItem from="1652182757338" duration="10167000" />
-      <workItem from="1652250544344" duration="1743000" />
+      <workItem from="1652250544344" duration="2138000" />
     </task>
     <task id="LOCAL-00001" summary="Javadoc &amp; comments">
       <created>1651749894815</created>
@@ -146,7 +135,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652182126604</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="code display">
+      <created>1652268823907</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1652268823908</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -175,7 +171,8 @@
     <MESSAGE value="Improving Game.java + abstract classes" />
     <MESSAGE value="Adding all classes &amp; files reogarnisation" />
     <MESSAGE value="functional game" />
-    <option name="LAST_COMMIT_MESSAGE" value="functional game" />
+    <MESSAGE value="code display" />
+    <option name="LAST_COMMIT_MESSAGE" value="code display" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/java_dd$Game.ic" NAME="Game Coverage Results" MODIFIED="1651743795530" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
