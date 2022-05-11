@@ -52,7 +52,7 @@ public class Menu {
 
     public char turnMenu() {
         char letterChar = '!';
-        while (letterChar != ' ' && letterChar !='Q') {
+        while (letterChar != ' ' && letterChar != 'Q') {
             if (letterChar != '!') {
                 System.out.println("La lettre que vous avez tapé n'est pas correcte");
             }

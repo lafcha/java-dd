@@ -9,16 +9,16 @@ public abstract class Weapon extends Equipment {
 
     /***CONSTRUCTOR***/
     /**
-     *
      * @param power the number of attack points the hero can get
-     * @param name the name of the weapon
+     * @param name  the name of the weapon
      */
-    public Weapon( int power, String name){
-       super(power, name);
+    public Weapon(int power, String name) {
+        super(power, name);
     }
 
     /**
      * Adds force to the hero according to the hero's type
+     *
      * @param hero the hero playing
      * @return a string indicating if the player can have the weapon, and if so, how many attackpoints he gains.
      */
