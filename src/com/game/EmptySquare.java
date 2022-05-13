@@ -1,4 +1,4 @@
-package com.equipment;
+package com.game;
 
 import com.characters.heroes.Hero;
 import com.game.ISurprise;

@@ -34,51 +34,37 @@ public class Menu {
                 System.out.println("La lettre que vous avez tapé n'est pas correcte");
             }
             System.out.println("Choisissez un type de personnage. 'M' pour Magicien ou 'G' Guerrier");
-            String letter = scanner.nextLine();
-            letterChar = letter.charAt(0);
+            try {
+                String letter = scanner.nextLine();
+                letterChar = letter.charAt(0);
+            } catch (StringIndexOutOfBoundsException e){
+                System.out.println("La lettre que vous avez tapé n'est pas correcte");
+            }
+
         }
         return letterChar;
     }
 
     public String chooseHeroNameMenu() {
         System.out.println("Entrez le nom de votre personnage : ");
-        return scanner.nextLine();
+        String letter ="";
+        try {
+            letter = scanner.nextLine();
+        } catch (StringIndexOutOfBoundsException e){
+            System.out.println("La lettre que vous avez tapé n'est pas correcte");
+        }
+        return letter;
     }
 
     public String chooseNewHeroNameMenu() {
         System.out.println("Entrez le nouveau nom de votre personnage : ");
-        return scanner.nextLine();
-    }
-
-    public char turnMenu() {
-        char letterChar = '!';
-        while (letterChar != ' ' && letterChar != 'Q') {
-            if (letterChar != '!') {
-                System.out.println("La lettre que vous avez tapé n'est pas correcte");
-            }
-            System.out.println("Tapez sur la barre d'espace, puis Entrée pour lancer le dé.");
-            System.out.println("Tapez sur Q pour quitter.");
-            String letter = scanner.nextLine();
-            letterChar = letter.charAt(0);
+        String letter ="";
+        try {
+            letter = scanner.nextLine();
+        } catch (StringIndexOutOfBoundsException e){
+            System.out.println("La lettre que vous avez tapé n'est pas correcte");
         }
-        return letterChar;
-    }
-
-    /**
-     * Displays the Menu and launches again the game or exit according to the player's choice
-     */
-    public char displayEndOfGameMenu() {
-        char letterChar = '!';
-        while (letterChar != 'R' && letterChar != 'Q') {
-            if (letterChar != '!') {
-                System.out.println("La lettre que vous avez tapé n'est pas correcte");
-            }
-            System.out.println("Tapez 'R' pour Rejouer ");
-            System.out.println("Tapez 'Q' pour Quitter ");
-            String letter = scanner.nextLine();
-            letterChar = letter.charAt(0);
-        }
-        return letterChar;
+        return letter;
     }
 
     /**
@@ -99,6 +85,44 @@ public class Menu {
         return letterChar;
     }
 
+
+    public char turnMenu() {
+        char letterChar = '!';
+        while (letterChar != ' ' && letterChar != 'Q') {
+            if (letterChar != '!') {
+                System.out.println("La lettre que vous avez tapé n'est pas correcte");
+            }
+            System.out.println("Tapez sur la barre d'espace, puis Entrée pour lancer le dé.");
+            System.out.println("Tapez sur Q pour quitter.");
+            try {
+                String letter = scanner.nextLine();
+                letterChar = letter.charAt(0);
+            } catch (StringIndexOutOfBoundsException e){
+                System.out.println("La lettre que vous avez tapé n'est pas correcte");
+            }
+        }
+        return letterChar;
+    }
+
+    public char displayFleeOrFightMenu(){
+        char letterChar = '!';
+        while (letterChar != 'F' && letterChar != 'C') {
+            if (letterChar != '!') {
+                System.out.println("La lettre que vous avez tapé n'est pas correcte");
+            }
+            System.out.println("Tapez sur F pour Fuir le combat. Vous reculerez d'un nombre aléatoire entre 1 et 6 cases.");
+            System.out.println("Tapez sur C pour Combattre le monstre.");
+            try {
+                String letter = scanner.nextLine();
+                letterChar = letter.charAt(0);
+            } catch (StringIndexOutOfBoundsException e){
+                System.out.println("La lettre que vous avez tapé n'est pas correcte");
+            }
+        }
+        return letterChar;
+    }
+
+
     /**
      * The menu to choose between display or modify the hero's infos
      *
@@ -112,12 +136,36 @@ public class Menu {
             }
             System.out.println("Tapez 'A' pour afficher les infos de votre personnage");
             System.out.println("Tapez 'M' pour modifier les infos de votre personnage");
-            String letter = scanner.nextLine();
-            letterChar = letter.charAt(0);
+            try {
+                String letter = scanner.nextLine();
+                letterChar = letter.charAt(0);
+            } catch (StringIndexOutOfBoundsException e){
+                System.out.println("La lettre que vous avez tapé n'est pas correcte");
+            }
 
         }
         return letterChar;
     }
 
 
+    /**
+     * Displays the Menu and launches again the game or exit according to the player's choice
+     */
+    public char displayEndOfGameMenu() {
+        char letterChar = '!';
+        while (letterChar != 'R' && letterChar != 'Q') {
+            if (letterChar != '!') {
+                System.out.println("La lettre que vous avez tapé n'est pas correcte");
+            }
+            System.out.println("Tapez 'R' pour Rejouer ");
+            System.out.println("Tapez 'Q' pour Quitter ");
+            try {
+                String letter = scanner.nextLine();
+                letterChar = letter.charAt(0);
+            } catch (StringIndexOutOfBoundsException e){
+                System.out.println("La lettre que vous avez tapé n'est pas correcte");
+            }
+        }
+        return letterChar;
+    }
 }

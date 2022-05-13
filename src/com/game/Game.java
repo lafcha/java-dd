@@ -4,8 +4,10 @@ import com.Menu;
 import com.characters.heroes.Hero;
 import com.characters.heroes.Warrior;
 import com.characters.heroes.Wizard;
+import com.characters.monsters.Monster;
 import com.exceptions.OutOfBoardCharacterException;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Game {
@@ -108,24 +110,39 @@ public class Game {
      * Plays a game
      */
     public void playTheGame() {
-
         System.out.println(hero);
         System.out.println("La partie commence. Bonne chance !");
         boolean endOfGame = false;
-        Dice dice = new Dice();
         while (!endOfGame) {
             char letterChar = menu.turnMenu();
             if (letterChar == ' ') {
-                dice.rollTheDice();
-                int diceValue = dice.getValue();
-                System.out.println("Le dé fait " + diceValue + ".");
-                int newPosition = hero.getPosition() + diceValue;
-                hero.setPosition(newPosition);
+                int newPosition = setHeroPosition();
                 try {
                     ISurprise surprise = board.goToSquare(newPosition);
-                    System.out.println("Vous avancez à la case " + newPosition + ".");
-                    System.out.println(surprise.openSurprise(hero));
-                    System.out.println("Vous avez " + hero.getLifePoints() + " points de vie et " + hero.getForce() + " points d'attaque.");
+                    if (surprise instanceof Monster) {
+                        System.out.println("Vous allez combattre un " + surprise.getClass().getSimpleName());
+                        boolean fighting = true;
+                        while (fighting) {
+                            char playerChoice = menu.displayFleeOrFightMenu();
+                            if (playerChoice == 'C') {
+                                System.out.println(surprise.openSurprise(hero));
+                                if (((Monster) surprise).getLifePoints() <= 0) {
+                                    fighting = false;
+                                    System.out.println("Bravo ! Vous avez combatu un " + ((Monster) surprise).getName() + " et vous avez gagné le combat !");
+                                }
+                            } else {
+                                fighting = false;
+                                Random random = new Random();
+                                int randomBackwardSquares = random.nextInt(6 - 1) + 1;
+                                System.out.println("Vous avez décidé de fuir, vous reculez de " + randomBackwardSquares + " cases.");
+                                hero.setPosition((hero.getPosition() - randomBackwardSquares));
+                                System.out.println("Vous etes à la case " + hero.getPosition() + ".");
+                            }
+                        }
+                    } else {
+                        System.out.println(surprise.openSurprise(hero));
+                        System.out.println("Vous avez " + hero.getLifePoints() + " points de vie et " + hero.getForce() + " points d'attaque.");
+                    }
                     if (hero.getLifePoints() <= 0) {
                         endOfGame = true;
                         this.displayMenu = false;
@@ -140,15 +157,23 @@ public class Game {
                 exitGame();
             }
         }
+    }
 
-
+    public int setHeroPosition() {
+        Dice dice = new Dice();
+        dice.rollTheDice();
+        int diceValue = dice.getValue();
+        System.out.println("Le dé fait " + diceValue + ".");
+        int newPosition = hero.getPosition() + diceValue;
+        hero.setPosition(newPosition);
+        System.out.println("Vous avancez à la case " + newPosition + ".");
+        return newPosition;
     }
 
     public void exitGame() {
         System.out.println("Au revoir et à bientôt !");
         System.exit(0);
     }
-
 
 }
 

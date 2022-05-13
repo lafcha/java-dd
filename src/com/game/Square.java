@@ -3,7 +3,6 @@ package com.game;
 import com.characters.monsters.Dragon;
 import com.characters.monsters.Gobelin;
 import com.characters.monsters.Sorcer;
-import com.equipment.EmptySquare;
 import com.equipment.potions.LargePotion;
 import com.equipment.potions.NormalPotion;
 import com.equipment.spells.Fireball;

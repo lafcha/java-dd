@@ -45,7 +45,7 @@ public class Board {
      * @return the surprise corresponding to the square
      */
     public ISurprise goToSquare(int squareNb) throws OutOfBoardCharacterException {
-        if (squareNb >= board.length) {
+        if (squareNb >= board.length || squareNb < 1) {
             throw new OutOfBoardCharacterException();
         } else {
             return board[squareNb].getSurprise();
