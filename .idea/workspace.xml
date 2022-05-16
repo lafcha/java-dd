@@ -1,12 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="85240f88-176e-490a-8e1c-ec60ac74a656" name="Changes" comment="Only one weapon or spell functionnality ok">
+    <list default="true" id="68b2a588-5175-4fa9-85e7-bbc2098b00de" name="Changes" comment="Only one weapon or spell functionnality ok">
+      <change afterPath="$PROJECT_DIR$/src/com/exceptions/fleeingException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/game/cheatBoard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/game/cheatSquare.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/characters/heroes/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/characters/heroes/Hero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/characters/monsters/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/characters/monsters/Monster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/equipment/Equipment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/equipment/Equipment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/equipment/potions/LargePotion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/equipment/potions/LargePotion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/equipment/potions/NormalPotion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/equipment/potions/NormalPotion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/equipment/potions/Potion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/equipment/potions/Potion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/equipment/spells/Lightning.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/equipment/spells/Lightning.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/equipment/spells/Spell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/equipment/spells/Spell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/equipment/weapons/Sword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/equipment/weapons/Sword.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/equipment/weapons/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/equipment/weapons/Weapon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/game/EmptySquare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/game/EmptySquare.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/game/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/game/ISurprise.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/game/ISurprise.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

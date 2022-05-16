@@ -1,9 +1,11 @@
 package com.equipment.weapons;
 
+import com.Menu;
 import com.characters.heroes.Hero;
 import com.characters.heroes.Warrior;
 import com.characters.heroes.Wizard;
 import com.equipment.Equipment;
+import com.exceptions.fleeingException;
 
 public abstract class Weapon extends Equipment {
 
@@ -22,7 +24,7 @@ public abstract class Weapon extends Equipment {
      * @param hero the hero playing
      * @return a string indicating if the player can have the weapon, and if so, how many attackpoints he gains.
      */
-    public String openSurprise(Hero hero) {
+    public String openSurprise(Hero hero, Menu menu) throws fleeingException {
         if (hero instanceof Warrior) {
             if (hero.getWeapon() == null) {
                 if (hero.getForce() + this.getPower() > hero.getMaxAttackForce()) {

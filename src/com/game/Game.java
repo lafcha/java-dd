@@ -4,17 +4,14 @@ import com.Menu;
 import com.characters.heroes.Hero;
 import com.characters.heroes.Warrior;
 import com.characters.heroes.Wizard;
-import com.characters.monsters.Monster;
 import com.exceptions.OutOfBoardCharacterException;
-
-import java.util.Random;
-import java.util.Scanner;
+import com.exceptions.fleeingException;
 
 public class Game {
 
     /****ATTRIBUTES***/
     private Hero hero;
-    private Board board;
+    private cheatBoard board;
     private Menu menu;
     private boolean stillPlaying = true;
     private boolean displayMenu = true;
@@ -27,7 +24,7 @@ public class Game {
     }
 
     /****SETTERS****/
-    public void setBoard(Board board) {
+    public void setBoard(cheatBoard board) {
         this.board = board;
     }
 
@@ -37,7 +34,7 @@ public class Game {
 
 
     /****GETTERS****/
-    public Board getBoard() {
+    public cheatBoard getBoard() {
         return board;
     }
 
@@ -55,7 +52,7 @@ public class Game {
             String heroName = menu.chooseHeroNameMenu();
             hero = createNewCharacter(heroType, heroName);
             System.out.println("Bravo ! vous avez crée votre personnage. Que voulez-vous faire maintenant ?");
-            board = new Board();
+            board = new cheatBoard();
             while (displayMenu) {
                 char playerChoice = menu.displayBeforeGameMenu();
                 if (playerChoice == 'I') {
@@ -119,29 +116,16 @@ public class Game {
                 int newPosition = setHeroPosition();
                 try {
                     ISurprise surprise = board.goToSquare(newPosition);
-                    if (surprise instanceof Monster) {
-                        System.out.println("Vous allez combattre un " + surprise.getClass().getSimpleName());
-                        boolean fighting = true;
-                        while (fighting) {
-                            char playerChoice = menu.displayFleeOrFightMenu();
-                            if (playerChoice == 'C') {
-                                System.out.println(surprise.openSurprise(hero));
-                                if (((Monster) surprise).getLifePoints() <= 0) {
-                                    fighting = false;
-                                    System.out.println("Bravo ! Vous avez combatu un " + ((Monster) surprise).getName() + " et vous avez gagné le combat !");
-                                }
-                            } else {
-                                fighting = false;
-                                Random random = new Random();
-                                int randomBackwardSquares = random.nextInt(6 - 1) + 1;
-                                System.out.println("Vous avez décidé de fuir, vous reculez de " + randomBackwardSquares + " cases.");
-                                hero.setPosition((hero.getPosition() - randomBackwardSquares));
-                                System.out.println("Vous etes à la case " + hero.getPosition() + ".");
-                            }
-                        }
-                    } else {
-                        System.out.println(surprise.openSurprise(hero));
+                    try{
+                        System.out.println(surprise.openSurprise(hero, menu));
                         System.out.println("Vous avez " + hero.getLifePoints() + " points de vie et " + hero.getForce() + " points d'attaque.");
+                    } catch (fleeingException e){
+                        if (hero.getPosition() <=0){
+                            hero.setPosition(1);
+                            System.out.println("Vous revenez à la case 1.");
+                        } else {
+                            System.out.println("Vous etes à la case " + hero.getPosition() + ".");
+                        }
                     }
                     if (hero.getLifePoints() <= 0) {
                         endOfGame = true;

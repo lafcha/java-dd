@@ -1,9 +1,11 @@
 package com.equipment.spells;
 
+import com.Menu;
 import com.characters.heroes.Hero;
 import com.characters.heroes.Warrior;
 import com.characters.heroes.Wizard;
 import com.equipment.Equipment;
+import com.exceptions.fleeingException;
 
 public abstract class Spell extends Equipment {
 
@@ -21,7 +23,7 @@ public abstract class Spell extends Equipment {
      * @param hero the hero playing
      * @return a string indicating if the hero can have a spell & and how many attack points he gains.
      */
-    public String openSurprise(Hero hero) {
+    public String openSurprise(Hero hero, Menu menu) throws fleeingException {
 
         if (hero instanceof Wizard) {
             if (hero.getWeapon() == null) {
