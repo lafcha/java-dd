@@ -3,9 +3,8 @@ package com.equipment.weapons;
 import com.Menu;
 import com.characters.heroes.Hero;
 import com.characters.heroes.Warrior;
-import com.characters.heroes.Wizard;
 import com.equipment.Equipment;
-import com.exceptions.fleeingException;
+import com.exceptions.FleeingException;
 
 public abstract class Weapon extends Equipment {
 
@@ -19,12 +18,13 @@ public abstract class Weapon extends Equipment {
     }
 
     /**
-     * Adds force to the hero according to the hero's type
-     *
+     * Interface OpenSuprise :  Adds force to the hero according to the hero's type
      * @param hero the hero playing
+     * @param menu the game's menu
      * @return a string indicating if the player can have the weapon, and if so, how many attackpoints he gains.
+     * @throws FleeingException if the player chooses to flee the fight
      */
-    public String openSurprise(Hero hero, Menu menu) throws fleeingException {
+    public String openSurprise(Hero hero, Menu menu) throws FleeingException {
         if (hero instanceof Warrior) {
             if (hero.getWeapon() == null) {
                 if (hero.getForce() + this.getPower() > hero.getMaxAttackForce()) {

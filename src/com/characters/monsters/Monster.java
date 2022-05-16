@@ -3,7 +3,7 @@ package com.characters.monsters;
 import com.Menu;
 import com.characters.Character;
 import com.characters.heroes.Hero;
-import com.exceptions.fleeingException;
+import com.exceptions.FleeingException;
 import com.game.ISurprise;
 
 import java.util.Random;
@@ -17,17 +17,18 @@ public abstract class Monster extends Character implements ISurprise {
     }
 
     /**
-     * Interface OpenSuprise : the hero fights against a monster. He attacks first and loose lifepoints when he takes a blow.
-     *
+     * Interface OpenSuprise : the hero fights against a monster. He attacks first. He can either fight or flee.
      * @param hero
+     * @param menu
      * @return a string giving the result of the fight : won or lost.
+     * @throws FleeingException if the player chooses to flee the fight
      */
-    public String openSurprise(Hero hero, Menu menu) throws fleeingException {
+    public String openSurprise(Hero hero, Menu menu) throws FleeingException {
 
         System.out.println("Vous allez combattre un " + this.getName());
         boolean fighting = true;
         while (fighting) {
-            char playerChoice = menu.displayFleeOrFightMenu();
+            char playerChoice = menu.fightMenu();
             if (playerChoice == 'C') {
                 System.out.println("Vous avez " + hero.getLifePoints() + " points de vie et " + hero.getForce() + " points d'attaque.");
                 System.out.println("Vous combattez un " + this.getName() + ". Il a " + this.getLifePoints() + " point de vie et " + this.getForce() + " points d'attaque.");
@@ -58,7 +59,7 @@ public abstract class Monster extends Character implements ISurprise {
                 int randomBackwardSquares = random.nextInt(6 - 1) + 1;
                 System.out.println("Vous avez décidé de fuir, vous reculez de " + randomBackwardSquares + " cases.");
                 hero.setPosition((hero.getPosition() - randomBackwardSquares));
-                throw new fleeingException();
+                throw new FleeingException();
 
             }
         }

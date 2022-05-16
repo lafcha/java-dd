@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="68b2a588-5175-4fa9-85e7-bbc2098b00de" name="Changes" comment="Only one weapon or spell functionnality ok">
-      <change afterPath="$PROJECT_DIR$/src/com/exceptions/fleeingException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/game/cheatBoard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/game/cheatSquare.java" afterDir="false" />
+    <list default="true" id="68b2a588-5175-4fa9-85e7-bbc2098b00de" name="Changes" comment="Adding menu as parameter in openSurprise method">
+      <change afterPath="$PROJECT_DIR$/src/com/equipment/Inventory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/characters/heroes/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/characters/heroes/Hero.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/characters/monsters/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/characters/monsters/Monster.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/equipment/Equipment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/equipment/Equipment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/equipment/potions/LargePotion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/equipment/potions/LargePotion.java" afterDir="false" />
@@ -15,9 +15,10 @@
       <change beforePath="$PROJECT_DIR$/src/com/equipment/spells/Spell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/equipment/spells/Spell.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/equipment/weapons/Sword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/equipment/weapons/Sword.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/equipment/weapons/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/equipment/weapons/Weapon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/game/EmptySquare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/game/EmptySquare.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/exceptions/fleeingException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/exceptions/FleeingException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/game/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/game/ISurprise.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/game/ISurprise.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/game/cheatSquare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/game/cheatSquare.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,7 +189,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652685290911</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Adding menu as parameter in openSurprise method">
+      <created>1652693642968</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1652693642969</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -220,7 +228,8 @@
     <MESSAGE value="code display" />
     <MESSAGE value="Fight or flee functionality ok" />
     <MESSAGE value="Only one weapon or spell functionnality ok" />
-    <option name="LAST_COMMIT_MESSAGE" value="Only one weapon or spell functionnality ok" />
+    <MESSAGE value="Adding menu as parameter in openSurprise method" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding menu as parameter in openSurprise method" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/java_dd$Game.ic" NAME="Game Coverage Results" MODIFIED="1651743795530" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

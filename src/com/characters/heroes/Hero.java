@@ -3,6 +3,7 @@ package com.characters.heroes;
 
 import com.characters.Character;
 import com.equipment.Equipment;
+import com.equipment.Inventory;
 import com.equipment.spells.Spell;
 import com.equipment.weapons.Weapon;
 
@@ -16,6 +17,8 @@ public abstract class Hero extends Character {
     private int position;
 
     private Equipment weapon;
+
+    private Inventory inventory;
 
     /****GETTERS****/
     public String getImage() {
@@ -34,6 +37,9 @@ public abstract class Hero extends Character {
     }
     public Equipment getWeapon() {
         return weapon;
+    }
+    public Inventory getInventory() {
+        return inventory;
     }
 
     /****SETTERS****/
@@ -68,6 +74,7 @@ public abstract class Hero extends Character {
         this.maxAttackForce = maxAttackForce;
         this.maxLifePoints = maxLifePoints;
         this.weapon = null;
+        this. inventory = new Inventory();
     }
 
     /****METHODS****/

@@ -8,17 +8,12 @@ import java.util.Scanner;
 public class Menu {
 
     /***ATTRIBUTES***/
-
-
     private Scanner scanner = new Scanner(System.in);
 
     /***GETTERS***/
-
     public Scanner getScanner() {
         return scanner;
     }
-
-    /***SETTERS***/
 
     /***METHODS***/
 
@@ -45,6 +40,10 @@ public class Menu {
         return letterChar;
     }
 
+    /**
+     * Asks the name of the hero
+     * @return String hero's name
+     */
     public String chooseHeroNameMenu() {
         System.out.println("Entrez le nom de votre personnage : ");
         String letter ="";
@@ -56,6 +55,10 @@ public class Menu {
         return letter;
     }
 
+    /**
+     * Asks a new name for the hero
+     * @return String new hero's name
+     */
     public String chooseNewHeroNameMenu() {
         System.out.println("Entrez le nouveau nom de votre personnage : ");
         String letter ="";
@@ -69,6 +72,7 @@ public class Menu {
 
     /**
      * Displays the menu and directs the player according to his/her choice
+     * @return Char J, I, Q according to the player's choice
      */
     public char displayBeforeGameMenu() {
         char letterChar = '!';
@@ -86,13 +90,18 @@ public class Menu {
     }
 
 
+    /**
+     * The menu when the player is playing, asks wether s/he wants to launch the dice or quit
+     * @return char, according to the player's choice
+     */
     public char turnMenu() {
         char letterChar = '!';
-        while (letterChar != ' ' && letterChar != 'Q') {
+        while (letterChar != ' ' && letterChar != 'Q' && letterChar != 'I') {
             if (letterChar != '!') {
                 System.out.println("La lettre que vous avez tapé n'est pas correcte");
             }
             System.out.println("Tapez sur la barre d'espace, puis Entrée pour lancer le dé.");
+            System.out.println("Tapez sur I pour afficher votre inventaire.");
             System.out.println("Tapez sur Q pour quitter.");
             try {
                 String letter = scanner.nextLine();
@@ -104,14 +113,18 @@ public class Menu {
         return letterChar;
     }
 
-    public char displayFleeOrFightMenu(){
+    /**
+     * Asks what the player wants to do when he enconters a new equipment
+     * @return char, according to the player's choice
+     */
+    public char getNewEquipmentMenu(){
         char letterChar = '!';
-        while (letterChar != 'F' && letterChar != 'C') {
+        while (letterChar != 'U' && letterChar != 'S') {
             if (letterChar != '!') {
                 System.out.println("La lettre que vous avez tapé n'est pas correcte");
             }
-            System.out.println("Tapez sur F pour Fuir le combat. Vous reculerez d'un nombre aléatoire entre 1 et 6 cases.");
-            System.out.println("Tapez sur C pour Combattre le monstre.");
+            System.out.println("Tapez sur U pour utiliser ce nouvel équipement.");
+            System.out.println("Tapez sur S pour stocker cet équipement dans votre inventaire.");
             try {
                 String letter = scanner.nextLine();
                 letterChar = letter.charAt(0);
@@ -122,10 +135,51 @@ public class Menu {
         return letterChar;
     }
 
+    public char displayInventory(Hero hero){
+        char letterChar = '!';
+        while (letterChar != 'Q' ) {
+            if (letterChar != '!') {
+                System.out.println("La lettre que vous avez tapé n'est pas correcte");
+            }
+            hero.getInventory().displayAllEquipments();
+            System.out.println("Tapez sur Q pour quitter et revenir au jeu.");
+            try {
+                String letter = scanner.nextLine();
+                letterChar = letter.charAt(0);
+            } catch (StringIndexOutOfBoundsException e){
+                System.out.println("La lettre que vous avez tapé n'est pas correcte");
+            }
+        }
+        return letterChar;
+
+
+    }
+
+    /**
+     * Asks the player if s/he want to fight or flee a fight when fighting a monster.
+     * @return char, according to the player's choice
+     */
+    public char fightMenu(){
+        char letterChar = '!';
+        while (letterChar != 'F' && letterChar != 'C' && letterChar != 'U') {
+            if (letterChar != '!') {
+                System.out.println("La lettre que vous avez tapé n'est pas correcte");
+            }
+            System.out.println("Tapez sur F pour Fuir le combat. Vous reculerez d'un nombre aléatoire entre 1 et 6 cases.");
+            System.out.println("Tapez sur C pour Combattre le monstre.");
+            System.out.println("Tapez sur U pour utiliser un équipement.");
+            try {
+                String letter = scanner.nextLine();
+                letterChar = letter.charAt(0);
+            } catch (StringIndexOutOfBoundsException e){
+                System.out.println("La lettre que vous avez tapé n'est pas correcte");
+            }
+        }
+        return letterChar;
+    }
 
     /**
      * The menu to choose between display or modify the hero's infos
-     *
      * @return the letter corresponding to the player's choice
      */
     public char displayOrModifyHeroInfos() {
@@ -149,7 +203,8 @@ public class Menu {
 
 
     /**
-     * Displays the Menu and launches again the game or exit according to the player's choice
+     * Displays the Menu after a game, asks if the players wants to launch again or to exit
+     * @return char, according to the player's choice
      */
     public char displayEndOfGameMenu() {
         char letterChar = '!';

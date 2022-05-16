@@ -1,6 +1,7 @@
 package com.game;
 
 import com.characters.monsters.Gobelin;
+import com.equipment.weapons.Sword;
 
 public class cheatSquare {
 
@@ -8,7 +9,7 @@ public class cheatSquare {
     ISurprise surprise;
 
     public cheatSquare(){
-        surprise = new Gobelin();
+        surprise = new Sword();
     }
     public ISurprise getSurprise(){
         return surprise;

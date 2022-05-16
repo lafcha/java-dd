@@ -2,7 +2,7 @@ package com.equipment;
 
 import com.Menu;
 import com.characters.heroes.Hero;
-import com.exceptions.fleeingException;
+import com.exceptions.FleeingException;
 import com.game.ISurprise;
 
 public abstract class Equipment implements ISurprise {
@@ -43,6 +43,10 @@ public abstract class Equipment implements ISurprise {
      * @param hero the hero playing
      * @return a string
      */
-    public abstract String openSurprise(Hero hero, Menu menu) throws fleeingException;
+    public abstract String openSurprise(Hero hero, Menu menu) throws FleeingException;
 
-  }
+    @Override
+    public String toString() {
+        return this.getName();
+    }
+}

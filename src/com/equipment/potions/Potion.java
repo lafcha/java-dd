@@ -3,7 +3,7 @@ package com.equipment.potions;
 import com.Menu;
 import com.characters.heroes.Hero;
 import com.equipment.Equipment;
-import com.exceptions.fleeingException;
+import com.exceptions.FleeingException;
 
 public abstract class Potion extends Equipment {
 
@@ -22,7 +22,7 @@ public abstract class Potion extends Equipment {
      * @param hero the hero playing
      * @return a string indicatation how many lifepoints the hero has after getting a potion.
      */
-    public String openSurprise(Hero hero, Menu menu) throws fleeingException {
+    public String openSurprise(Hero hero, Menu menu) throws FleeingException {
         if ((hero.getLifePoints() + this.getPower()) > hero.getMaxLifePoints()) {
             hero.setLifePoints(hero.getMaxLifePoints());
             return "Vous avez ramassé une potion de type " + this.getName() + ". Elle donne " + this.getPower() + " points de vie en plus, mais vous ne pouvez avoir que " + hero.getMaxLifePoints() + " points de vie.";

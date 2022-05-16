@@ -2,10 +2,9 @@ package com.equipment.spells;
 
 import com.Menu;
 import com.characters.heroes.Hero;
-import com.characters.heroes.Warrior;
 import com.characters.heroes.Wizard;
 import com.equipment.Equipment;
-import com.exceptions.fleeingException;
+import com.exceptions.FleeingException;
 
 public abstract class Spell extends Equipment {
 
@@ -18,12 +17,13 @@ public abstract class Spell extends Equipment {
     }
 
     /**
-     * Determines if the hero can have a spell & and how many attack points he gains.
-     *
+     * Interface OpenSuprise : Determines if the hero can have a spell & and how many attack points he gains.
      * @param hero the hero playing
+     * @param menu the game's menu
      * @return a string indicating if the hero can have a spell & and how many attack points he gains.
+     * @throws FleeingException if the player chooses to flee the fights
      */
-    public String openSurprise(Hero hero, Menu menu) throws fleeingException {
+    public String openSurprise(Hero hero, Menu menu) throws FleeingException {
 
         if (hero instanceof Wizard) {
             if (hero.getWeapon() == null) {

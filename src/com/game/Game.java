@@ -4,8 +4,9 @@ import com.Menu;
 import com.characters.heroes.Hero;
 import com.characters.heroes.Warrior;
 import com.characters.heroes.Wizard;
+import com.equipment.Inventory;
 import com.exceptions.OutOfBoardCharacterException;
-import com.exceptions.fleeingException;
+import com.exceptions.FleeingException;
 
 public class Game {
 
@@ -116,11 +117,11 @@ public class Game {
                 int newPosition = setHeroPosition();
                 try {
                     ISurprise surprise = board.goToSquare(newPosition);
-                    try{
+                    try {
                         System.out.println(surprise.openSurprise(hero, menu));
                         System.out.println("Vous avez " + hero.getLifePoints() + " points de vie et " + hero.getForce() + " points d'attaque.");
-                    } catch (fleeingException e){
-                        if (hero.getPosition() <=0){
+                    } catch (FleeingException e) {
+                        if (hero.getPosition() <= 0) {
                             hero.setPosition(1);
                             System.out.println("Vous revenez à la case 1.");
                         } else {
@@ -137,6 +138,9 @@ public class Game {
                     this.displayMenu = false;
                     System.out.println(" Vous avez GAGNÉ ! BRAVO !");
                 }
+
+            }else if (letterChar == 'I'){
+                menu.displayInventory(hero);
             } else if (letterChar == 'Q') {
                 exitGame();
             }
