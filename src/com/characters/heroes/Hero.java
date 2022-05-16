@@ -15,6 +15,8 @@ public abstract class Hero extends Character {
 
     private int position;
 
+    private Equipment weapon;
+
     /****GETTERS****/
     public String getImage() {
         return image;
@@ -29,6 +31,9 @@ public abstract class Hero extends Character {
     }
     public int getPosition() {
         return position;
+    }
+    public Equipment getWeapon() {
+        return weapon;
     }
 
     /****SETTERS****/
@@ -46,6 +51,9 @@ public abstract class Hero extends Character {
     public void setPosition(int position) {
         this.position = position;
     }
+    public void setWeapon(Equipment hasWeapon) {
+        this.weapon = hasWeapon;
+    }
 
     /****CONSTRUCTOR***/
     /**
@@ -59,6 +67,7 @@ public abstract class Hero extends Character {
         super(name, lifePoints, force);
         this.maxAttackForce = maxAttackForce;
         this.maxLifePoints = maxLifePoints;
+        this.weapon = null;
     }
 
     /****METHODS****/
@@ -67,7 +76,8 @@ public abstract class Hero extends Character {
      */
     @Override
     public String toString() {
-        return "Vous vous appelez " + getName() + ". Vous êtes un " + this.getClass().getSimpleName() + ". Vous avez " + getLifePoints() + " points de vie et " + getForce() +" points d'attaque.";
+        //return "Vous vous appelez " + getName() + ". Vous êtes un " + this.getClass().getSimpleName() + ". Vous avez " + getLifePoints() + " points de vie et " + getForce() +" points d'attaque.";
+    return "vous avez une arme de type " + this.getWeapon();
     }
 
 

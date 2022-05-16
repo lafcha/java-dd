@@ -24,17 +24,33 @@ public abstract class Weapon extends Equipment {
      */
     public String openSurprise(Hero hero) {
         if (hero instanceof Warrior) {
-            if (hero.getForce() + this.getPower() > hero.getMaxAttackForce()) {
-                hero.setForce(hero.getMaxAttackForce());
-                return "Vous avez ramassé une arme de type " + this.getName() + ". Elle vous apporte " + this.getPower() + " points d'attaque, mais vous ne pouvez avoir que " + hero.getMaxAttackForce() + " points d'attaque. Vous avez donc " + hero.getForce() + " points d'attaque";
-            } else {
-                hero.setForce(hero.getForce() + this.getPower());
-                return "Vous avez ramassé une arme de type " + this.getName() + ". Elle vous apporte " + this.getPower() + " points d'attaque.";
-            }
+            if (hero.getWeapon() == null) {
+                if (hero.getForce() + this.getPower() > hero.getMaxAttackForce()) {
+                    hero.setForce(hero.getMaxAttackForce());
+                    hero.setWeapon(this);
+                    return "Vous avez ramassé une arme de type " + this.getName() + ". Elle vous apporte " + (hero.getMaxAttackForce() - this.getPower()) + " points d'attaque.";
+                } else {
+                    hero.setForce(hero.getForce() + this.getPower());
+                    hero.setWeapon(this);
+                    return "Vous avez ramassé une arme de type " + this.getName() + ". Elle vous apporte " + this.getPower() + " points d'attaque.";
+                }
+            } else if (hero.getWeapon().getPower() > this.getPower()) {
+                System.out.println("Vous récupérez une arme plus puissante que la votre et vous échangez donc l'arme que vous aviez par celle que vous avez ramassez.");
+                if (((hero.getForce() - hero.getWeapon().getPower()) + this.getPower()) > hero.getMaxAttackForce()) {
+                    hero.setForce(hero.getMaxAttackForce());
+                    hero.setWeapon(this);
+                    return "Vous avez ramassé une arme de type " + this.getName() + ". Elle vous apporte " + (hero.getMaxAttackForce() - this.getPower()) + " points d'attaque.";
+                } else {
+                    hero.setForce((hero.getForce() - hero.getWeapon().getPower())+ this.getPower());
+                    hero.setWeapon(this);
+                    return "Vous avez ramassé une arme de type " + this.getName() + ". Elle vous apporte " + this.getPower() + " points d'attaque.";
+                }
 
+            } else {
+                return "La case contient une arme de moins bonne qualité que celle que vous avez actuellement. Vous ne la ramassez donc pas.";
+            }
         } else {
-            return "Vous avez ramassé une arme de type " + this.getName() + " mais vous êtes un " + hero.getClass().getSimpleName() + " et vous ne pouvez pas l'utiliser. Vous ne bénéficiez pas de points d'attaque supplémentaires.";
+            return "Vous avez ramassé un équipement de type " + this.getName() + " mais vous êtes un " + hero.getClass().getSimpleName() + " et vous ne pouvez pas l'utiliser. Vous ne bénéficiez pas de points d'attaque supplémentaires.";
         }
     }
-
 }
