@@ -1,11 +1,17 @@
 package com.game;
 
 import com.Menu;
+import com.bdd.Bdd;
 import com.characters.heroes.Hero;
 import com.characters.heroes.Warrior;
 import com.characters.heroes.Wizard;
 import com.exceptions.OutOfBoardCharacterException;
 import com.exceptions.fleeingException;
+
+import javax.print.DocFlavor;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class Game {
 
@@ -13,14 +19,21 @@ public class Game {
     private Hero hero;
     private cheatBoard board;
     private Menu menu;
-    private boolean stillPlaying = true;
-    private boolean displayMenu = true;
+    private boolean stillPlaying;
+    private boolean displayMenu;
+    private Connection dbConnection;
+    private Request request;
 
 
     /***CONSTRUCTOR***/
 
     public Game() {
         this.menu = new Menu();
+        this.stillPlaying = true;
+        this.displayMenu = true;
+        Bdd bdd = new Bdd();
+        this.dbConnection = bdd.dbConnection();
+        request = new Request();
     }
 
     /****SETTERS****/
@@ -45,13 +58,25 @@ public class Game {
 
     /****METHODS***/
 
-    public void start() {
+    public void start() throws SQLException {
         while (stillPlaying) {
             System.out.println("Bienvenue sur le jeu !");
-            char heroType = menu.chooseHeroTypeMenu();
-            String heroName = menu.chooseHeroNameMenu();
-            hero = createNewCharacter(heroType, heroName);
-            System.out.println("Bravo ! vous avez crée votre personnage. Que voulez-vous faire maintenant ?");
+            char playersChoice = menu.createOrUseHeroMenu();
+            if(playersChoice == 'O'){
+                System.out.println("Voici les héros qui ont été sauvegardés");
+                int selectedHeroIndex = menu.selectSavedHero(request, dbConnection);
+                ResultSet selectedHero = request.getOneHero(selectedHeroIndex, dbConnection);
+                if ( selectedHero.getString("Type") == "Warrior" ){
+                    hero = createNewCharacter( 'G',  selectedHero.getString("Name"));
+                } else {
+                    hero = createNewCharacter( 'M',  selectedHero.getString("Name"));
+                }
+            } else {
+                char heroType = menu.chooseHeroTypeMenu();
+                String heroName = menu.chooseHeroNameMenu();
+                hero = createNewCharacter(heroType, heroName);
+                System.out.println("Bravo ! vous avez crée votre personnage. Que voulez-vous faire maintenant ?");
+            }
             board = new cheatBoard();
             while (displayMenu) {
                 char playerChoice = menu.displayBeforeGameMenu();

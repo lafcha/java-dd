@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"com.characters"},{"l":"com.equipment"},{"l":"com.game"}]
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"com"},{"l":"com.bdd"},{"l":"com.characters"},{"l":"com.characters.heroes"},{"l":"com.characters.monsters"},{"l":"com.equipment"},{"l":"com.equipment.potions"},{"l":"com.equipment.spells"},{"l":"com.equipment.weapons"},{"l":"com.exceptions"},{"l":"com.game"}]

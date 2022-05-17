@@ -1,3 +1,11 @@
+com
+com.bdd
 com.characters
+com.characters.heroes
+com.characters.monsters
 com.equipment
+com.equipment.potions
+com.equipment.spells
+com.equipment.weapons
+com.exceptions
 com.game

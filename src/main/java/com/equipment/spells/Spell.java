@@ -2,7 +2,6 @@ package com.equipment.spells;
 
 import com.Menu;
 import com.characters.heroes.Hero;
-import com.characters.heroes.Warrior;
 import com.characters.heroes.Wizard;
 import com.equipment.Equipment;
 import com.exceptions.fleeingException;

@@ -1,8 +1,13 @@
 package com;
 
+import com.bdd.Bdd;
 import com.characters.heroes.Hero;
 import com.game.Game;
+import com.game.Request;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class Menu {
@@ -10,7 +15,8 @@ public class Menu {
     /***ATTRIBUTES***/
 
 
-    private Scanner scanner = new Scanner(System.in);
+    private Scanner scanner;
+
 
     /***GETTERS***/
 
@@ -20,7 +26,61 @@ public class Menu {
 
     /***SETTERS***/
 
+    /***CONSTRUCTORS***/
+
+    public Menu() {
+        scanner = new Scanner(System.in);
+
+    }
+
     /***METHODS***/
+
+
+    public char createOrUseHeroMenu() {
+        char letterChar = '!';
+        while (letterChar != 'O' && letterChar != 'N') {
+            if (letterChar != '!') {
+                System.out.println("La lettre que vous avez tapé n'est pas correcte");
+            }
+            System.out.println("Voulez-vous utiliser un héros déjà enregistrer ou en créer un nouveau ?");
+            System.out.println("Tapez 'O' Oui pour utiliser un héros enregistré");
+            System.out.println("Tapez 'N' Non pour créer un nouveau héros");
+            try {
+                String letter = scanner.nextLine();
+                letterChar = letter.charAt(0);
+            } catch (StringIndexOutOfBoundsException e) {
+                System.out.println("La lettre que vous avez tapé n'est pas correcte");
+            }
+
+        }
+        return letterChar;
+
+    }
+
+    public int selectSavedHero(Request request, Connection dbConnection) throws SQLException {
+        try {
+            ResultSet result = request.getAllHeroes(dbConnection);
+            System.out.println("Tapez le numéro du Héros que vous souhaitez utiliser");
+            int selectedNb = -1;
+            if (selectedNb != -1) {
+                System.out.println("La lettre que vous avez tapé n'est pas correcte");
+            }
+            while (result.next()) {
+                System.out.println(result.getInt("Id") + "." + result.getString("Name") + " : " + result.getString("Type"));
+            }
+            try {
+                selectedNb = scanner.nextInt();
+            } catch (StringIndexOutOfBoundsException e) {
+                System.out.println("La lettre que vous avez tapé n'est pas correcte");
+            }
+            return selectedNb;
+
+        } catch (SQLException e) {
+            System.out.println("Erreur de base de données");
+        }
+        return ' ';
+    }
+
 
     /**
      * Ask hero's settings & creates it
@@ -37,7 +97,7 @@ public class Menu {
             try {
                 String letter = scanner.nextLine();
                 letterChar = letter.charAt(0);
-            } catch (StringIndexOutOfBoundsException e){
+            } catch (StringIndexOutOfBoundsException e) {
                 System.out.println("La lettre que vous avez tapé n'est pas correcte");
             }
 
@@ -47,10 +107,10 @@ public class Menu {
 
     public String chooseHeroNameMenu() {
         System.out.println("Entrez le nom de votre personnage : ");
-        String letter ="";
+        String letter = "";
         try {
             letter = scanner.nextLine();
-        } catch (StringIndexOutOfBoundsException e){
+        } catch (StringIndexOutOfBoundsException e) {
             System.out.println("La lettre que vous avez tapé n'est pas correcte");
         }
         return letter;
@@ -58,10 +118,10 @@ public class Menu {
 
     public String chooseNewHeroNameMenu() {
         System.out.println("Entrez le nouveau nom de votre personnage : ");
-        String letter ="";
+        String letter = "";
         try {
             letter = scanner.nextLine();
-        } catch (StringIndexOutOfBoundsException e){
+        } catch (StringIndexOutOfBoundsException e) {
             System.out.println("La lettre que vous avez tapé n'est pas correcte");
         }
         return letter;
@@ -97,14 +157,14 @@ public class Menu {
             try {
                 String letter = scanner.nextLine();
                 letterChar = letter.charAt(0);
-            } catch (StringIndexOutOfBoundsException e){
+            } catch (StringIndexOutOfBoundsException e) {
                 System.out.println("La lettre que vous avez tapé n'est pas correcte");
             }
         }
         return letterChar;
     }
 
-    public char displayFleeOrFightMenu(){
+    public char displayFleeOrFightMenu() {
         char letterChar = '!';
         while (letterChar != 'F' && letterChar != 'C') {
             if (letterChar != '!') {
@@ -115,7 +175,7 @@ public class Menu {
             try {
                 String letter = scanner.nextLine();
                 letterChar = letter.charAt(0);
-            } catch (StringIndexOutOfBoundsException e){
+            } catch (StringIndexOutOfBoundsException e) {
                 System.out.println("La lettre que vous avez tapé n'est pas correcte");
             }
         }
@@ -139,7 +199,7 @@ public class Menu {
             try {
                 String letter = scanner.nextLine();
                 letterChar = letter.charAt(0);
-            } catch (StringIndexOutOfBoundsException e){
+            } catch (StringIndexOutOfBoundsException e) {
                 System.out.println("La lettre que vous avez tapé n'est pas correcte");
             }
 
@@ -162,7 +222,7 @@ public class Menu {
             try {
                 String letter = scanner.nextLine();
                 letterChar = letter.charAt(0);
-            } catch (StringIndexOutOfBoundsException e){
+            } catch (StringIndexOutOfBoundsException e) {
                 System.out.println("La lettre que vous avez tapé n'est pas correcte");
             }
         }

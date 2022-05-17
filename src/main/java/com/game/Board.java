@@ -1,7 +1,6 @@
 package com.game;
 
 import com.exceptions.OutOfBoardCharacterException;
-
 import java.util.ArrayList;
 
 
