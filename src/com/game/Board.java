@@ -18,7 +18,7 @@ public class Board {
     }
 
 
-    /****CONSTRUCTOR****/
+    /**CONSTRUCTOR****/
     /**
      * Creates the board and fills it
      */
