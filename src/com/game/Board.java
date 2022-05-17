@@ -2,28 +2,32 @@ package com.game;
 
 import com.exceptions.OutOfBoardCharacterException;
 
+import java.util.ArrayList;
+
 
 public class Board {
     /****ATTRIBUTES****/
     private int boardLength = 64;
-     private Square[] board = new Square[boardLength];
+     private ArrayList<Square> board;
 
 
 
     /****GETTERS****/
-    public Square[] getBoard() {
+    public ArrayList<Square> getBoard() {
         return board;
     }
+
 
     /****CONSTRUCTOR****/
     /**
      * Creates the board and fills it
      */
     public Board() {
+        board = new ArrayList<Square>();
         int counter = 0;
         while (counter < boardLength) {
             Square square = new Square();
-            board[counter] = square;
+            board.add(square);
             counter++;
         }
     }
@@ -33,8 +37,8 @@ public class Board {
      * Prints the board
      */
     public void printBoard() {
-        for (int i = 0; i < board.length; i++) {
-            System.out.println("Case n°" + i + " : " + board[i]);
+        for (int i = 0; i < board.size() ; i++) {
+            System.out.println("Case n°" + i + " : " + board.get(i));
         }
     }
 
@@ -45,10 +49,10 @@ public class Board {
      * @return the surprise corresponding to the square
      */
     public ISurprise goToSquare(int squareNb) throws OutOfBoardCharacterException {
-        if (squareNb >= board.length || squareNb < 1) {
+        if (squareNb >= board.size() || squareNb < 1) {
             throw new OutOfBoardCharacterException();
         } else {
-            return board[squareNb].getSurprise();
+            return board.get(squareNb).getSurprise();
         }
     }
 
