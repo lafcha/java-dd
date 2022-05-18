@@ -76,8 +76,8 @@ public abstract class Hero extends Character {
      */
     @Override
     public String toString() {
-        //return "Vous vous appelez " + getName() + ". Vous êtes un " + this.getClass().getSimpleName() + ". Vous avez " + getLifePoints() + " points de vie et " + getForce() +" points d'attaque.";
-    return "vous avez une arme de type " + this.getWeapon();
+        return "Vous vous appelez " + getName() + ". Vous êtes un " + this.getClass().getSimpleName() + ". Vous avez " + getLifePoints() + " points de vie et " + getForce() +" points d'attaque.";
+
     }
 
 

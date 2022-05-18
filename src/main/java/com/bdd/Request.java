@@ -1,4 +1,4 @@
-package com.game;
+package com.bdd;
 
 import com.bdd.Bdd;
 import com.characters.heroes.Hero;
@@ -36,24 +36,21 @@ public class Request {
         try {
             statement = dbConnection.createStatement();
             result = statement.executeQuery("SELECT * FROM heroes;");
-            return result;
-
         } catch (SQLException e) {
-            System.out.println("Erreur BDD");
+            e.printStackTrace();
         }
-        return null;
+        return result;
     }
 
-    public ResultSet getOneHero(int index, Connection dbConnection) throws SQLException {
+    public ResultSet getHeroById(int index, Connection dbConnection) throws SQLException {
 
         try {
             statement = dbConnection.createStatement();
-            result = statement.executeQuery("SELECT ALL FROM Heroes WHERE ID = " + index + ";");
-            return result;
+            result = statement.executeQuery("SELECT * FROM heroes WHERE Id=" + index + ";");
 
         } catch (SQLException e) {
-
+            e.printStackTrace();
         }
-        return null;
+        return result;
     }
 }

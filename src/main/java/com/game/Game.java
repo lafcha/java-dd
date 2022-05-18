@@ -2,13 +2,12 @@ package com.game;
 
 import com.Menu;
 import com.bdd.Bdd;
+import com.bdd.Request;
 import com.characters.heroes.Hero;
 import com.characters.heroes.Warrior;
 import com.characters.heroes.Wizard;
 import com.exceptions.OutOfBoardCharacterException;
 import com.exceptions.fleeingException;
-
-import javax.print.DocFlavor;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -57,32 +56,42 @@ public class Game {
 
 
     /****METHODS***/
-
+    /**
+     * Starts the game
+     *
+     * @throws SQLException
+     */
     public void start() throws SQLException {
         while (stillPlaying) {
             System.out.println("Bienvenue sur le jeu !");
             char playersChoice = menu.createOrUseHeroMenu();
-            if(playersChoice == 'O'){
+            if (playersChoice == 'O') {
                 System.out.println("Voici les héros qui ont été sauvegardés");
                 int selectedHeroIndex = menu.selectSavedHero(request, dbConnection);
-                ResultSet selectedHero = request.getOneHero(selectedHeroIndex, dbConnection);
-                if ( selectedHero.getString("Type") == "Warrior" ){
-                    hero = createNewCharacter( 'G',  selectedHero.getString("Name"));
+
+                ResultSet selectedHero= request.getHeroById(selectedHeroIndex, dbConnection);
+                if(selectedHero.next()){
+                    if (selectedHero.getString("Type") == "Warrior") {
+                        hero = createNewCharacter('G', selectedHero.getString("Name"));
+                    } else {
+                        hero = createNewCharacter('M', selectedHero.getString("Name"));
+                    }
                 } else {
-                    hero = createNewCharacter( 'M',  selectedHero.getString("Name"));
+                    System.out.println("ERROR !!");
                 }
             } else {
                 char heroType = menu.chooseHeroTypeMenu();
                 String heroName = menu.chooseHeroNameMenu();
                 hero = createNewCharacter(heroType, heroName);
-                System.out.println("Bravo ! vous avez crée votre personnage. Que voulez-vous faire maintenant ?");
+                System.out.println("Bravo ! vous avez crée votre personnage !");
             }
             board = new cheatBoard();
+            System.out.println(hero);
             while (displayMenu) {
-                char playerChoice = menu.displayBeforeGameMenu();
-                if (playerChoice == 'I') {
-                    playerChoice = menu.displayOrModifyHeroInfos();
-                    switch (playerChoice) {
+                char beforeGameAnswer = menu.displayBeforeGameMenu();
+                if (beforeGameAnswer == 'I') {
+                    beforeGameAnswer = menu.displayOrModifyHeroInfos();
+                    switch (beforeGameAnswer) {
                         case 'A':
                             System.out.println(this.hero);
                             break;
@@ -91,7 +100,7 @@ public class Game {
                             this.hero.setName(newName);
                             break;
                     }
-                } else if (playerChoice == 'Q') {
+                } else if (beforeGameAnswer == 'Q') {
                     exitGame();
                 } else {
                     playTheGame();
@@ -129,7 +138,7 @@ public class Game {
 
 
     /**
-     * Plays a game
+     * Plays a game. The player can either quit or keep playing.
      */
     public void playTheGame() {
         System.out.println(hero);
@@ -141,17 +150,8 @@ public class Game {
                 int newPosition = setHeroPosition();
                 try {
                     ISurprise surprise = board.goToSquare(newPosition);
-                    try{
-                        System.out.println(surprise.openSurprise(hero, menu));
-                        System.out.println("Vous avez " + hero.getLifePoints() + " points de vie et " + hero.getForce() + " points d'attaque.");
-                    } catch (fleeingException e){
-                        if (hero.getPosition() <=0){
-                            hero.setPosition(1);
-                            System.out.println("Vous revenez à la case 1.");
-                        } else {
-                            System.out.println("Vous etes à la case " + hero.getPosition() + ".");
-                        }
-                    }
+                    System.out.println(surprise.openSurprise(hero, menu));
+                    System.out.println("Vous avez " + hero.getLifePoints() + " points de vie et " + hero.getForce() + " points d'attaque.");
                     if (hero.getLifePoints() <= 0) {
                         endOfGame = true;
                         this.displayMenu = false;
@@ -161,12 +161,20 @@ public class Game {
                     endOfGame = true;
                     this.displayMenu = false;
                     System.out.println(" Vous avez GAGNÉ ! BRAVO !");
+                } catch (fleeingException e) {
+                    if (hero.getPosition() <= 0) {
+                        hero.setPosition(1);
+                        System.out.println("Vous revenez à la case 1.");
+                    } else {
+                        System.out.println("Vous etes à la case " + hero.getPosition() + ".");
+                    }
                 }
             } else if (letterChar == 'Q') {
                 exitGame();
             }
         }
     }
+
 
     public int setHeroPosition() {
         Dice dice = new Dice();

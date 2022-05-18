@@ -1,9 +1,6 @@
 package com;
 
-import com.bdd.Bdd;
-import com.characters.heroes.Hero;
-import com.game.Game;
-import com.game.Request;
+import com.bdd.Request;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -70,6 +67,7 @@ public class Menu {
             }
             try {
                 selectedNb = scanner.nextInt();
+                scanner.nextLine();
             } catch (StringIndexOutOfBoundsException e) {
                 System.out.println("La lettre que vous avez tapé n'est pas correcte");
             }
@@ -139,8 +137,12 @@ public class Menu {
             System.out.println("Tapez 'J' pour Jouer ");
             System.out.println("Tapez 'I' pour Modifier ou afficher les Informations de votre personnage ");
             System.out.println("Tapez 'Q' pour Quitter ");
-            String letter = scanner.nextLine();
-            letterChar = letter.charAt(0);
+            try {
+                String letter = scanner.nextLine();
+                letterChar = letter.charAt(0);
+            } catch (StringIndexOutOfBoundsException e) {
+                System.out.println("La lettre que vous avez tapé n'est pas correcte");
+            }
         }
         return letterChar;
     }
