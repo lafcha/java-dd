@@ -1,6 +1,6 @@
 package com;
 
-import com.bdd.Request;
+import com.bdd.HeroDAO;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -45,9 +45,9 @@ public class Menu {
 
     }
 
-    public int selectSavedHero(Request request, Connection dbConnection) throws SQLException {
+    public int selectSavedHero(HeroDAO heroDAO, Connection dbConnection) throws SQLException {
         try {
-            ResultSet result = request.getAllHeroes(dbConnection);
+            ResultSet result = heroDAO.getAll(dbConnection);
             System.out.println("Tapez le numéro du Héros que vous souhaitez utiliser");
             int selectedNb = -1;
             if (selectedNb != -1) {
@@ -226,13 +226,23 @@ public class Menu {
         return letterChar;
     }
 
-
-    /***GETTERS***/
-
-    public Scanner getScanner() {
-        return scanner;
+    public char saveHeroMenu(){
+        char letterChar = '!';
+        while (letterChar != 'O' && letterChar != 'N') {
+            if (letterChar != '!') {
+                System.out.println("La lettre que vous avez tapé n'est pas correcte");
+            }
+            System.out.println("Souhaitez-vous enregistrer votre héro ?");
+            System.out.println("Tapez 'O' pour Oui ");
+            System.out.println("Tapez 'N' pour N ");
+            try {
+                String letter = scanner.nextLine();
+                letterChar = letter.charAt(0);
+            } catch (StringIndexOutOfBoundsException e) {
+                System.out.println("La lettre que vous avez tapé n'est pas correcte");
+            }
+        }
+        return letterChar;
     }
-
-    /***SETTERS***/
 
 }

@@ -2,7 +2,7 @@ package com.game;
 
 import com.Menu;
 import com.bdd.Bdd;
-import com.bdd.Request;
+import com.bdd.HeroDAO;
 import com.characters.heroes.Hero;
 import com.characters.heroes.Warrior;
 import com.characters.heroes.Wizard;
@@ -21,7 +21,7 @@ public class Game {
     private boolean stillPlaying;
     private boolean displayMenu;
     private Connection dbConnection;
-    private Request request;
+    private HeroDAO heroDAO;
 
 
     /***CONSTRUCTOR***/
@@ -32,7 +32,7 @@ public class Game {
         this.displayMenu = true;
         Bdd bdd = new Bdd();
         this.dbConnection = bdd.dbConnection();
-        request = new Request();
+        heroDAO = new HeroDAO();
     }
 
     /****METHODS***/
@@ -110,16 +110,14 @@ public class Game {
      */
     public void useSavedHero() throws SQLException {
         System.out.println("Voici les héros qui ont été sauvegardés");
-        int selectedHeroIndex = menu.selectSavedHero(request, dbConnection);
-        ResultSet selectedHero= request.getHeroById(selectedHeroIndex, dbConnection);
+        int selectedHeroIndex = menu.selectSavedHero(heroDAO, dbConnection);
+        ResultSet selectedHero= heroDAO.getById(selectedHeroIndex, dbConnection);
         if(selectedHero.next()){
             if (selectedHero.getString("Type") == "Warrior") {
                 hero = createNewCharacter('G', selectedHero.getString("Name"));
             } else {
                 hero = createNewCharacter('M', selectedHero.getString("Name"));
             }
-        } else {
-            System.out.println("ERROR !!");
         }
     }
 
@@ -157,7 +155,11 @@ public class Game {
                     }
                 }
             } else if (letterChar == 'Q') {
-                exitGame();
+                try{
+                    exitGame();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
@@ -180,9 +182,18 @@ public class Game {
     /**
      * Displays exit and stop the program.
      */
-    public void exitGame() {
+    public void exitGame() throws SQLException {
+        char playersChoice = menu.saveHeroMenu();
+        if(playersChoice == 'O'){
+            saveHero();
+        }
         System.out.println("Au revoir et à bientôt !");
         System.exit(0);
+        dbConnection.close();
+    }
+
+    public void saveHero(){
+            heroDAO.create(dbConnection, hero);
     }
 
     /****SETTERS****/
