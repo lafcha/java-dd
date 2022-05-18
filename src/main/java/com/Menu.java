@@ -14,15 +14,6 @@ public class Menu {
 
     private Scanner scanner;
 
-
-    /***GETTERS***/
-
-    public Scanner getScanner() {
-        return scanner;
-    }
-
-    /***SETTERS***/
-
     /***CONSTRUCTORS***/
 
     public Menu() {
@@ -166,6 +157,10 @@ public class Menu {
         return letterChar;
     }
 
+    /**
+     * Allows the player to flee a fight.
+     * @return char, the player's choice.
+     */
     public char displayFleeOrFightMenu() {
         char letterChar = '!';
         while (letterChar != 'F' && letterChar != 'C') {
@@ -230,4 +225,14 @@ public class Menu {
         }
         return letterChar;
     }
+
+
+    /***GETTERS***/
+
+    public Scanner getScanner() {
+        return scanner;
+    }
+
+    /***SETTERS***/
+
 }

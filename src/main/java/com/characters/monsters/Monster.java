@@ -16,6 +16,8 @@ public abstract class Monster extends Character implements ISurprise {
         super(name, lifePoints, force);
     }
 
+    /****METHODS****/
+
     /**
      * Interface OpenSuprise : the hero fights against a monster. He attacks first and loose lifepoints when he takes a blow.
      *

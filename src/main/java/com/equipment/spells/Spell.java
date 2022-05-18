@@ -8,6 +8,9 @@ import com.exceptions.fleeingException;
 
 public abstract class Spell extends Equipment {
 
+
+    /***CONSTRUCTOR***/
+
     /**
      * @param power the number of attackpoints the hero can get
      * @param name  the name of the spell
@@ -16,6 +19,7 @@ public abstract class Spell extends Equipment {
         super(power, name);
     }
 
+    /***METHODS***/
     /**
      * Determines if the hero can have a spell & and how many attack points he gains.
      *

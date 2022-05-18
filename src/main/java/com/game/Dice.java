@@ -7,10 +7,6 @@ public class Dice {
     /****ATTRIBUTES****/
     private int value;
 
-    /****GETTER****/
-    public int getValue() {
-        return value;
-    }
 
     /****METHODS***/
     /**
@@ -21,13 +17,8 @@ public class Dice {
         this.value = random.nextInt(6-1)+1;
     }
 
-    public static void main(String[] args) {
-        Dice d = new Dice();
-        for (int i=0; i< 1000; i++) {
-            d.rollTheDice();
-            if (d.getValue() < 1 || d.getValue() > 6) {
-                System.out.println("ERROR "+ d.getValue());
-            }
-        }
+    /****GETTER****/
+    public int getValue() {
+        return value;
     }
 }

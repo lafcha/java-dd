@@ -5,6 +5,8 @@ import com.characters.heroes.Hero;
 import com.game.ISurprise;
 
 public class EmptySquare implements ISurprise {
+
+    /***CONSTRUCTOR***/
     /**
      *
      * @param hero the hero playing

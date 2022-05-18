@@ -7,12 +7,6 @@ public class cheatBoard {
     private int boardLength = 64;
     private cheatSquare[] board = new cheatSquare[boardLength];
 
-
-    /****GETTERS****/
-    public cheatSquare[] getBoard() {
-        return board;
-    }
-
     /****CONSTRUCTOR****/
     /**
      * Creates the board and fills it
@@ -51,6 +45,10 @@ public class cheatBoard {
         }
     }
 
+    /****GETTERS****/
+    public cheatSquare[] getBoard() {
+        return board;
+    }
 
 }
 

@@ -35,30 +35,9 @@ public class Game {
         request = new Request();
     }
 
-    /****SETTERS****/
-    public void setBoard(cheatBoard board) {
-        this.board = board;
-    }
-
-    public void setHero(Hero hero) {
-        this.hero = hero;
-    }
-
-
-    /****GETTERS****/
-    public cheatBoard getBoard() {
-        return board;
-    }
-
-    public Hero getHero() {
-        return hero;
-    }
-
-
     /****METHODS***/
     /**
-     * Starts the game
-     *
+     * Architecture of the game : beginning, launching a game & exiting
      * @throws SQLException
      */
     public void start() throws SQLException {
@@ -66,19 +45,7 @@ public class Game {
             System.out.println("Bienvenue sur le jeu !");
             char playersChoice = menu.createOrUseHeroMenu();
             if (playersChoice == 'O') {
-                System.out.println("Voici les héros qui ont été sauvegardés");
-                int selectedHeroIndex = menu.selectSavedHero(request, dbConnection);
-
-                ResultSet selectedHero= request.getHeroById(selectedHeroIndex, dbConnection);
-                if(selectedHero.next()){
-                    if (selectedHero.getString("Type") == "Warrior") {
-                        hero = createNewCharacter('G', selectedHero.getString("Name"));
-                    } else {
-                        hero = createNewCharacter('M', selectedHero.getString("Name"));
-                    }
-                } else {
-                    System.out.println("ERROR !!");
-                }
+              useSavedHero();
             } else {
                 char heroType = menu.chooseHeroTypeMenu();
                 String heroName = menu.chooseHeroNameMenu();
@@ -118,6 +85,7 @@ public class Game {
     }
 
     /**
+     * Creates a new character according to the player's information.
      * @param letter the letter corresponding to the character type typed by the player
      * @param name   the name of the character typed by the player
      * @return an instance of the hero according to the type
@@ -134,6 +102,25 @@ public class Game {
         }
         this.hero = newCharacter;
         return newCharacter;
+    }
+
+    /**
+     * Allows the player to select a hero saved in the db & create the hero according to the data.
+     * @throws SQLException
+     */
+    public void useSavedHero() throws SQLException {
+        System.out.println("Voici les héros qui ont été sauvegardés");
+        int selectedHeroIndex = menu.selectSavedHero(request, dbConnection);
+        ResultSet selectedHero= request.getHeroById(selectedHeroIndex, dbConnection);
+        if(selectedHero.next()){
+            if (selectedHero.getString("Type") == "Warrior") {
+                hero = createNewCharacter('G', selectedHero.getString("Name"));
+            } else {
+                hero = createNewCharacter('M', selectedHero.getString("Name"));
+            }
+        } else {
+            System.out.println("ERROR !!");
+        }
     }
 
 
@@ -175,7 +162,10 @@ public class Game {
         }
     }
 
-
+    /**
+     * Sets the hero position according to the dice value.
+     * @return the hero's new position
+     */
     public int setHeroPosition() {
         Dice dice = new Dice();
         dice.rollTheDice();
@@ -187,9 +177,31 @@ public class Game {
         return newPosition;
     }
 
+    /**
+     * Displays exit and stop the program.
+     */
     public void exitGame() {
         System.out.println("Au revoir et à bientôt !");
         System.exit(0);
+    }
+
+    /****SETTERS****/
+    public void setBoard(cheatBoard board) {
+        this.board = board;
+    }
+
+    public void setHero(Hero hero) {
+        this.hero = hero;
+    }
+
+
+    /****GETTERS****/
+    public cheatBoard getBoard() {
+        return board;
+    }
+
+    public Hero getHero() {
+        return hero;
     }
 
 }

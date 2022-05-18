@@ -10,9 +10,11 @@ import java.sql.Statement;
 
 public class Bdd {
 
-    private Connection dbConnect;
+    /***ATTRIBUTES***/
 
+      private Connection dbConnect;
 
+    /***METHODS***/
     public Connection dbConnection() {
         try
         {

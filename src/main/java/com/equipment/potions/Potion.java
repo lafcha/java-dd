@@ -16,6 +16,9 @@ public abstract class Potion extends Equipment {
         super(power, name);
     }
 
+
+    /****METHODS****/
+
     /**
      * Determines the lifepoints the hero has after getting a potion.
      *

@@ -6,13 +6,9 @@ import com.exceptions.fleeingException;
 
 public class NormalPotion extends Potion {
 
+    /***CONSTRUCTOR***/
     public NormalPotion(){
         super(2, "standard");
-
     }
 
-    @Override
-    public String openSurprise(Hero hero, Menu menu) throws fleeingException {
-        return null;
-    }
 }

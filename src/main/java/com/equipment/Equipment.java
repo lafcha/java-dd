@@ -13,7 +13,17 @@ public abstract class Equipment implements ISurprise {
     private int power;
     private String name;
 
-    /****GETTER****/
+    /****CONSTRUCTOR****/
+    /**
+     * @param power the number of points (force or life) that are given by the equipment
+     */
+    public Equipment( int power, String  name){
+        this.power = power;
+        this.name = name;
+    }
+
+
+    /****GETTERS****/
     public int getPower() {
         return power;
     }
@@ -26,23 +36,4 @@ public abstract class Equipment implements ISurprise {
     public void setPower(int power) {
         this.power = power;
     }
-
-    /****CONSTRUCTOR****/
-    /**
-     *
-     * @param power the number of points (force or life) that are given by the equipment
-     */
-    public Equipment( int power, String  name){
-        this.power = power;
-        this.name = name;
-    }
-
-    /****METHODS****/
-    /**
-     * The method of the Isurprise interface.
-     * @param hero the hero playing
-     * @return a string
-     */
-    public abstract String openSurprise(Hero hero, Menu menu) throws fleeingException;
-
   }

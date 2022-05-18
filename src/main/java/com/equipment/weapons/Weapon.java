@@ -18,6 +18,7 @@ public abstract class Weapon extends Equipment {
         super(power, name);
     }
 
+    /***METHODS***/
     /**
      * Adds force to the hero according to the hero's type
      *

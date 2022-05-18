@@ -20,11 +20,6 @@ public class Request {
 
     /***CONSTRUCTORS***/
 
-
-    /***GETTERS***/
-
-    /***SETTERS***/
-
     /***METHODS***/
 
     public void saveHero(Bdd dbConnection, Hero hero) {
@@ -53,4 +48,10 @@ public class Request {
         }
         return result;
     }
+
+
+    /***GETTERS***/
+
+    /***SETTERS***/
+
 }

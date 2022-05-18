@@ -6,8 +6,8 @@ import com.characters.heroes.Wizard;
 import com.equipment.weapons.Weapon;
 
 public class Fireball extends Spell {
-    /****CONSTRUCTOR****/
 
+    /****CONSTRUCTOR****/
     public Fireball(){
         super(7, "Boule de feu");
     }
