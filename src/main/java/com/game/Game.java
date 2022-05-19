@@ -2,12 +2,14 @@ package com.game;
 
 import com.Menu;
 import com.bdd.Bdd;
+import com.bdd.CRUD;
 import com.bdd.HeroDAO;
 import com.characters.heroes.Hero;
 import com.characters.heroes.Warrior;
 import com.characters.heroes.Wizard;
 import com.exceptions.OutOfBoardCharacterException;
 import com.exceptions.fleeingException;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,37 +22,43 @@ public class Game {
     private Menu menu;
     private boolean stillPlaying;
     private boolean displayMenu;
-    private Connection dbConnection;
-    private HeroDAO heroDAO;
+    private CRUD heroDAO;
+    private boolean hasDatabase;
 
 
     /***CONSTRUCTOR***/
 
-    public Game() {
+    public Game(Boolean hasDatabase) {
+
+        this.hasDatabase = hasDatabase;
+        if(this.hasDatabase){
+            heroDAO = new HeroDAO();
+        } else {
+            heroDAO = null;
+        }
         this.menu = new Menu();
         this.stillPlaying = true;
         this.displayMenu = true;
-        Bdd bdd = new Bdd();
-        this.dbConnection = bdd.dbConnection();
-        heroDAO = new HeroDAO();
+
     }
 
     /****METHODS***/
     /**
      * Architecture of the game : beginning, launching a game & exiting
+     *
      * @throws SQLException
      */
     public void start() throws SQLException {
         while (stillPlaying) {
             System.out.println("Bienvenue sur le jeu !");
-            char playersChoice = menu.createOrUseHeroMenu();
-            if (playersChoice == 'O') {
-              useSavedHero();
-            } else {
+            char playersChoice = menu.createOrUseHeroMenu(hasDatabase);
+            if (playersChoice == 'N' || playersChoice == 'D') {
                 char heroType = menu.chooseHeroTypeMenu();
                 String heroName = menu.chooseHeroNameMenu();
                 hero = createNewCharacter(heroType, heroName);
                 System.out.println("Bravo ! vous avez crée votre personnage !");
+            } else {
+                useSavedHero();
             }
             board = new cheatBoard();
             System.out.println(hero);
@@ -86,6 +94,7 @@ public class Game {
 
     /**
      * Creates a new character according to the player's information.
+     *
      * @param letter the letter corresponding to the character type typed by the player
      * @param name   the name of the character typed by the player
      * @return an instance of the hero according to the type
@@ -106,13 +115,14 @@ public class Game {
 
     /**
      * Allows the player to select a hero saved in the db & create the hero according to the data.
+     *
      * @throws SQLException
      */
     public void useSavedHero() throws SQLException {
         System.out.println("Voici les héros qui ont été sauvegardés");
-        int selectedHeroIndex = menu.selectSavedHero(heroDAO, dbConnection);
-        ResultSet selectedHero= heroDAO.getById(selectedHeroIndex, dbConnection);
-        if(selectedHero.next()){
+        int selectedHeroIndex = menu.selectSavedHero(heroDAO);
+        ResultSet selectedHero = heroDAO.getById(selectedHeroIndex);
+        if (selectedHero.next()) {
             if (selectedHero.getString("Type") == "Warrior") {
                 hero = createNewCharacter('G', selectedHero.getString("Name"));
             } else {
@@ -155,7 +165,7 @@ public class Game {
                     }
                 }
             } else if (letterChar == 'Q') {
-                try{
+                try {
                     exitGame();
                 } catch (SQLException e) {
                     e.printStackTrace();
@@ -166,6 +176,7 @@ public class Game {
 
     /**
      * Sets the hero position according to the dice value.
+     *
      * @return the hero's new position
      */
     public int setHeroPosition() {
@@ -183,17 +194,18 @@ public class Game {
      * Displays exit and stop the program.
      */
     public void exitGame() throws SQLException {
-        char playersChoice = menu.saveHeroMenu();
-        if(playersChoice == 'O'){
-            saveHero();
+        if(hasDatabase){
+            char playersChoice = menu.saveHeroMenu();
+            if (playersChoice == 'O') {
+                saveHero();
+            }
         }
         System.out.println("Au revoir et à bientôt !");
         System.exit(0);
-        dbConnection.close();
     }
 
-    public void saveHero(){
-            heroDAO.create(dbConnection, hero);
+    public void saveHero() {
+        heroDAO.create(hero);
     }
 
     /****SETTERS****/

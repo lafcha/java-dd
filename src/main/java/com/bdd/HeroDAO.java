@@ -6,16 +6,21 @@ import java.sql.*;
 
 public class HeroDAO implements CRUD{
 
+    Connection connection;
+    Bdd database;
 
     /***CONSTRUCTORS***/
+    public HeroDAO(){
+        database = Bdd.getInstance();
+        connection = database.getConnection();
+    }
 
     /***METHODS***/
-
-    public void create(Connection dbConnection, Hero hero) {
+    public void create(Hero hero) {
         ResultSet result = null;
         String SQLRequest ="INSERT INTO heroes (Type, Name) VALUES(?,?)";
         try {
-            PreparedStatement statement = dbConnection.prepareStatement(SQLRequest);
+            PreparedStatement statement = connection.prepareStatement(SQLRequest);
             statement.setString(1, hero.getClass().getSimpleName());
             statement.setString(2, hero.getName());
             statement.executeUpdate();
@@ -26,10 +31,10 @@ public class HeroDAO implements CRUD{
         }
     }
 
-    public ResultSet getAll(Connection dbConnection) throws SQLException {
+    public ResultSet getAll() throws SQLException {
         ResultSet result = null;
         try {
-            Statement statement = dbConnection.createStatement();
+            Statement statement = connection.createStatement();
             result = statement.executeQuery("SELECT * FROM heroes ;");
         } catch (SQLException e) {
             e.printStackTrace();
@@ -37,10 +42,10 @@ public class HeroDAO implements CRUD{
         return result;
     }
 
-    public ResultSet getById(int index, Connection dbConnection) throws SQLException {
+    public ResultSet getById(int index) throws SQLException {
         ResultSet result = null;
         try {
-            Statement statement = dbConnection.createStatement();
+            Statement statement = connection.createStatement();
             result = statement.executeQuery("SELECT * FROM heroes WHERE Id=" + index + ";");
 
         } catch (SQLException e) {
@@ -48,6 +53,4 @@ public class HeroDAO implements CRUD{
         }
         return result;
     }
-
-
 }

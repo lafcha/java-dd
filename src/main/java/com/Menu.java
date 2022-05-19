@@ -1,8 +1,7 @@
 package com;
 
-import com.bdd.HeroDAO;
+import com.bdd.CRUD;
 
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
@@ -22,22 +21,25 @@ public class Menu {
     }
 
     /***METHODS***/
-
-
-    public char createOrUseHeroMenu() {
+    public char createOrUseHeroMenu(Boolean hasDatabase) {
         char letterChar = '!';
-        while (letterChar != 'O' && letterChar != 'N') {
-            if (letterChar != '!') {
-                System.out.println("La lettre que vous avez tapé n'est pas correcte");
-            }
-            System.out.println("Voulez-vous utiliser un héros déjà enregistrer ou en créer un nouveau ?");
-            System.out.println("Tapez 'O' Oui pour utiliser un héros enregistré");
-            System.out.println("Tapez 'N' Non pour créer un nouveau héros");
-            try {
-                String letter = scanner.nextLine();
-                letterChar = letter.charAt(0);
-            } catch (StringIndexOutOfBoundsException e) {
-                System.out.println("La lettre que vous avez tapé n'est pas correcte");
+        while (letterChar != 'O' && letterChar != 'N' && letterChar!= 'D') {
+            if (hasDatabase) {
+                if (letterChar != '!') {
+                    System.out.println("La lettre que vous avez tapé n'est pas correcte");
+                }
+
+                System.out.println("Voulez-vous utiliser un héros déjà enregistrer ou en créer un nouveau ?");
+                System.out.println("Tapez 'O' Oui pour utiliser un héros enregistré");
+                System.out.println("Tapez 'N' Non pour créer un nouveau héros");
+                try {
+                    String letter = scanner.nextLine();
+                    letterChar = letter.charAt(0);
+                } catch (StringIndexOutOfBoundsException e) {
+                    System.out.println("La lettre que vous avez tapé n'est pas correcte");
+                }
+            } else {
+                letterChar = 'D';
             }
 
         }
@@ -45,9 +47,9 @@ public class Menu {
 
     }
 
-    public int selectSavedHero(HeroDAO heroDAO, Connection dbConnection) throws SQLException {
+    public int selectSavedHero(CRUD heroDAO) throws SQLException {
         try {
-            ResultSet result = heroDAO.getAll(dbConnection);
+            ResultSet result = heroDAO.getAll();
             System.out.println("Tapez le numéro du Héros que vous souhaitez utiliser");
             int selectedNb = -1;
             if (selectedNb != -1) {
@@ -69,7 +71,6 @@ public class Menu {
         }
         return ' ';
     }
-
 
     /**
      * Ask hero's settings & creates it
@@ -159,6 +160,7 @@ public class Menu {
 
     /**
      * Allows the player to flee a fight.
+     *
      * @return char, the player's choice.
      */
     public char displayFleeOrFightMenu() {
@@ -226,7 +228,7 @@ public class Menu {
         return letterChar;
     }
 
-    public char saveHeroMenu(){
+    public char saveHeroMenu() {
         char letterChar = '!';
         while (letterChar != 'O' && letterChar != 'N') {
             if (letterChar != '!') {

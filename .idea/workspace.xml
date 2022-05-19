@@ -1,35 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="java-dd:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="68b2a588-5175-4fa9-85e7-bbc2098b00de" name="Changes" comment="Reorder getters &amp; setters">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/bdd/CRUD.java" afterDir="false" />
+    <list default="true" id="68b2a588-5175-4fa9-85e7-bbc2098b00de" name="Changes" comment="Saving hero ok">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/java_dd_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bdd/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bdd/HeroDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bdd/Bdd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bdd/Bdd.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bdd/CRUD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bdd/CRUD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bdd/HeroDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bdd/HeroDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/game/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Menu.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/bdd/Bdd.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bdd/Bdd.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bdd/Request.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/characters/heroes/Hero.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/characters/heroes/Hero.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/characters/monsters/Monster.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/characters/monsters/Monster.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/equipment/Equipment.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/equipment/Equipment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/equipment/potions/LargePotion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/equipment/potions/LargePotion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/equipment/potions/NormalPotion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/equipment/potions/NormalPotion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/equipment/potions/Potion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/equipment/potions/Potion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/equipment/spells/Spell.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/equipment/spells/Spell.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/equipment/weapons/Hammer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/equipment/weapons/Hammer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/equipment/weapons/Weapon.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/equipment/weapons/Weapon.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/exceptions/OutOfBoardCharacterException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/exceptions/OutOfBoardCharacterException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/exceptions/fleeingException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/exceptions/fleeingException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/game/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/game/Board.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/game/Dice.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/game/Dice.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/game/EmptySquare.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/game/EmptySquare.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/bdd/CRUD.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bdd/CRUD.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/bdd/HeroDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bdd/HeroDAO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/game/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/game/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/game/cheatBoard.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/game/cheatBoard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/game/cheatSquare.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/game/cheatSquare.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,9 +65,9 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/var/www/java-dd",
+    "last_opened_file_path": "/var/www/java-dd/src/main/resources",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "editing.templates"
@@ -108,6 +103,7 @@
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.Main" />
       <module name="java-dd" />
+      <option name="PROGRAM_PARAMETERS" value="-db" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.*" />
@@ -131,6 +127,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.com.bdd.Bdd" />
+      <item itemvalue="Application.Dice" />
+      <item itemvalue="Application.Game" />
+      <item itemvalue="Application.Main" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
@@ -151,7 +153,8 @@
       <workItem from="1652424044403" duration="17030000" />
       <workItem from="1652682455988" duration="1975000" />
       <workItem from="1652777451913" duration="15057000" />
-      <workItem from="1652854939615" duration="7713000" />
+      <workItem from="1652854939615" duration="18432000" />
+      <workItem from="1652941667761" duration="12751000" />
     </task>
     <task id="LOCAL-00001" summary="Javadoc &amp; comments">
       <created>1651749894815</created>
@@ -244,7 +247,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652858700694</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Saving hero ok">
+      <created>1652862723399</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1652862723399</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -280,7 +290,8 @@
     <MESSAGE value="Display saved heroes from dB" />
     <MESSAGE value="Select &amp; create hero from db" />
     <MESSAGE value="Reorder getters &amp; setters" />
-    <option name="LAST_COMMIT_MESSAGE" value="Reorder getters &amp; setters" />
+    <MESSAGE value="Saving hero ok" />
+    <option name="LAST_COMMIT_MESSAGE" value="Saving hero ok" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -289,6 +300,11 @@
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="2" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/game/Game.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
